@@ -64,21 +64,6 @@ class Genres(models.Model):
     def __str__(self):
         return self.name
     
-class Reviews(models.Model):
-    book = models.ForeignKey("Books", on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField()
-    comment = models.ForeignKey("Comments", on_delete=models.CASCADE)
-    datetime = models.DateTimeField(auto_now_add=True)
-    description = models.TextField()
-    spoilers = models.BooleanField(default=False)
-
-    class Meta:
-        verbose_name = "Review"
-        verbose_name_plural = "Reviews"
-
-    def __str__(self):
-        return f"Review for {self.book.title} by {self.user.username}"
 
 class Comments(models.Model):
     review = models.ForeignKey("Reviews", on_delete=models.CASCADE)
@@ -92,6 +77,21 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"Comment by {self.user.username} on {self.review.book.title}"
+
+class Reviews(models.Model):
+    book = models.ForeignKey("Books", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    datetime = models.DateTimeField(auto_now_add=True)
+    description = models.TextField()
+    spoilers = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Review"
+        verbose_name_plural = "Reviews"
+
+    def __str__(self):
+        return f"Review for {self.book.title} by {self.user.username}"
 
 class Book_list(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
