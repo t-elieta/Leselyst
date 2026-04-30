@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Leselyst - Home</title>
+    <title>Leselyst - Book List</title>
 </head>
 <body>
-    <h1>Welcome to Leselyst</h1>
-    <p>Leselyst is a platform for discovering and sharing books.</p>
+    <h1>Book List</h1>
     <ul>
         {% for book in books %}
-            <li>{{ book.title }} by {{ book.author.name }}</li>
+            <li><a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">{{ book.title }}</a> by {{ book.author.name }}</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'Leselystapp:book_list' %}">View All Books</a>
+    <a href="{% url 'Leselystapp:home' %}">Back to Home</a>
     <footer>
         <p>&copy; 2026 Leselyst. All rights reserved.</p>
     </footer>

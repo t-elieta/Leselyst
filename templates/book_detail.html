@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leselyst - Book Detail</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p>Author: {{ book.author.name }}</p>
+    <p>Description: {{ book.description }}</p>
+    <a href="{% url 'Leselystapp:book_list' %}">Back to Book List</a>
+    <footer>
+        <p>&copy; 2026 Leselyst. All rights reserved.</p>
+    </footer>
+</body>
+</html>
