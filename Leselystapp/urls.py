@@ -16,4 +16,5 @@ urlpatterns = [
     path("books/<int:book_id>/set_reading_status/", views.set_reading_status, name="set_reading_status"),
     path("my_lists/", views.my_lists, name="my_lists"),
     path("my_lists/<int:list_id>/", views.list_detail, name="list_detail"),
+    path("login/", auth.views.LoginView.as_view(template_name="registration/login.html"), name="login"),
 ]

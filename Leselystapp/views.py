@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites
-
+from django.db.models import Q
 
 def home(request):
     books = Books.objects.all().order_by("-date")[:10]
@@ -134,3 +134,4 @@ def list_detail(request, list_id):
     return render(request, "list_detail.html", {"book_list": book_list})
 
 
+#def search(request):
