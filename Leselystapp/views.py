@@ -51,19 +51,6 @@ def logout_view(request):
     return redirect("index")
 
 
-def login_view(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect(request.GET.get("next", "index"))
-        return render(request, "login.html", {
-            "username": username, "error": "Wrong password"
-        })
-    return render(request, "login.html")
-
 @login_required
 def add_review(request, book_id):
     book = get_object_or_404(Books, id=book_id)

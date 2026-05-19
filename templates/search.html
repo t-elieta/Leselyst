@@ -6,7 +6,7 @@
     <title>Search</title>
 </head>
 <body>
-    <form method="GET" action=""{% url "search" %}>
+    <form method="GET" action="{% url "search" %}">
         <input type="text" name="q" placeholder="Search posts...">
         <button type="submit">Search</button>
     </form>
@@ -14,7 +14,7 @@
     {% if results %}
         <ul>
         {% for post in results %}
-            <li>{{ post.title }}</li>
+            <li>{{ post.title }}, {{ Books_</li>
         {% endfor %}
         </ul>
     {% else %}
