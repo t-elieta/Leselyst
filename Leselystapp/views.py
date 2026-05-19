@@ -3,8 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites
+from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites, Post
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 def home(request):
     books = Books.objects.all().order_by("-date")[:10]
@@ -134,4 +135,21 @@ def list_detail(request, list_id):
     return render(request, "list_detail.html", {"book_list": book_list})
 
 
-#def search(request):
+def search(request):
+    query = request.GET.get("q")
+    results = Books.objects.all(author_list, Books) #add filters!!!
+    paginator = Paginator(results, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    if query:
+        results = Books.objects.filter(
+            Q(title__icontains=query) | Q(Authors__icontains=query)
+        )
+    else:
+        results = Books.objects.none()
+    return render(request, "search_results.html", {
+        "results": results,
+        "page_obj": page_obj
+        })
+
+
