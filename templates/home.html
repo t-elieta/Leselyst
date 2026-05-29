@@ -44,7 +44,7 @@
 </div>
  
 <div class="book-grid">
-    {% for book in books %}
+    {% for book in Books %}
     <div class="book-card">
         <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
             <div class="book-cover">
