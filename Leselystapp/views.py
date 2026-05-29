@@ -3,8 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites
-
+from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites, Post
+from django.db.models import Q
+from django.core.paginator import Paginator
 
 def home(request):
     books = Books.objects.all().order_by("-date")[:10]
@@ -49,19 +50,6 @@ def logout_view(request):
     logout(request)
     return redirect("index")
 
-
-def login_view(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect(request.GET.get("next", "index"))
-        return render(request, "login.html", {
-            "username": username, "error": "Wrong password"
-        })
-    return render(request, "login.html")
 
 @login_required
 def add_review(request, book_id):
@@ -132,5 +120,23 @@ def list_detail(request, list_id):
     if not book_list.is_public and book_list.user != request.user:
         return redirect("Leselystapp:home")
     return render(request, "list_detail.html", {"book_list": book_list})
+
+
+def search(request):
+    query = request.GET.get("q")
+    results = Books.objects.all(author_list, Books) #add filters!!!
+    paginator = Paginator(results, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    if query:
+        results = Books.objects.filter(
+            Q(title__icontains=query) | Q(Authors__icontains=query)
+        )
+    else:
+        results = Books.objects.none()
+    return render(request, "search_results.html", {
+        "results": results,
+        "page_obj": page_obj
+        })
 
 
