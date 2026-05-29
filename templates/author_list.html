@@ -9,7 +9,7 @@
     <h1>Authors</h1>
     <ul>
         {% for author in authors %}
-            <li><a href="{% url 'Leselystapp:author_detail' author_name=author %}">{{ author }}</a></li>
+            <li><a href="{% url 'Leselystapp:author_detail' author_id=author.id %}">{{ author }}</a></li>
         {% endfor %}
     </ul>
     <a href="{% url 'Leselystapp:home' %}">Back to Home</a>

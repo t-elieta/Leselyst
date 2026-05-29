@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leselyst - List Detail</title>
+</head>
+<body>
+    <h1>{{ book_list.name }}</h1>
+    <ul>
+        {% for book in book_list.books.all %}
+            <li><a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">{{ book.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'Leselystapp:my_lists' %}">Back to My Lists</a>
+    <footer>
+        <p>&copy; 2026 Leselyst. All rights reserved.</p>
+    </footer>
+</body>
+</html>

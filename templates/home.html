@@ -1,21 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Leselyst - Home</title>
-</head>
-<body>
-    <h1>Welcome to Leselyst</h1>
-    <p>Leselyst is a platform for discovering and sharing books.</p>
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }} by {{ book.author.name }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'Leselystapp:book_list' %}">View All Books</a>
-    <footer>
-        <p>&copy; 2026 Leselyst. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+{% extends "base.html" %}
+ 
+{% block title %}Leselyst — Discover your next read{% endblock %}
+ 
+{% block extra_styles %}
+.hero {
+    background: var(--brown);
+    color: var(--cream-dark);
+    margin: -1.5rem -1rem 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+ 
+.hero h1 {
+    font-size: 2.2rem;
+    color: var(--cream-dark);
+    margin-bottom: 0.5rem;
+}
+ 
+.hero p {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+ 
+.hero-actions { display: flex; gap: 0.75rem; justify-content: center; }
+{% endblock %}
+ 
+{% block content %}
+ 
+{% if not user.is_authenticated %}
+<div class="hero">
+    <h1>Discover & read more</h1>
+    <p>Find and track books you love</p>
+    <div class="hero-actions">
+        <a href="{% url 'Leselystapp:signup' %}" class="btn btn-green">Sign up for free</a>
+        <a href="{% url 'login' %}" class="btn btn-outline">Sign in</a>
+    </div>
+</div>
+{% endif %}
+<div class="section-head">
+    <h2>Recently Added</h2>
+    <a href="{% url 'Leselystapp:book_list' %}">More &rsaquo;</a>
+</div>
+ 
+<div class="book-grid">
+    {% for book in books %}
+    <div class="book-card">
+        <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+            <div class="book-cover">
+                {% if book.cover_url %}
+                    <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                {% endif %}
+            </div>
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-author">{{ book.author.name }}</div>
+        </a>
+    </div>
+    {% empty %}
+    <p style="color: var(--text-light);">No books yet.</p>
+    {% endfor %}
+</div>
+ 
+{% endblock %}

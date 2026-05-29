@@ -12,6 +12,8 @@ class Books(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     author = models.ForeignKey("Authors", on_delete=models.CASCADE, related_name='books')
     publication = models.ForeignKey("Publications", on_delete=models.CASCADE)
+    cover_url = models.URLField(null=True, blank=True)
+
 
     class Meta:
         verbose_name = "Book"
