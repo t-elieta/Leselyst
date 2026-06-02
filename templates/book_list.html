@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Leselyst - Book List</title>
-</head>
-<body>
-    <h1>Book List</h1>
-    <ul>
-        {% for book in books %}
-            <li><a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">{{ book.title }}</a> by {{ book.author.name }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'Leselystapp:home' %}">Back to Home</a>
-    <footer>
-        <p>&copy; 2026 Leselyst. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Books — Leselyst{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 400px; margin: 3rem auto;">
+    <h1 style="margin-bottom: 1.00rem;">Books</h1>
+
+    {% for book in books %}
+        <p style="color: var(--ink-light); margin-bottom: 2rem; font-size: 1rem;">
+            <a href="{% url 'Leselystapp:book_detail' book.id %}"
+            style="color: var(--ink);"> 
+            {{ book.title }}
+            </a>
+        </p>
+    {% empty %}
+        <p>No books found</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
