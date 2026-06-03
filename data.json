@@ -1,215 +1,5 @@
 [
 {
-  "model": "Leselystapp.books",
-  "pk": 1,
-  "fields": {
-    "title": "1984",
-    "date": "1949-06-08",
-    "isbn": "9780451524935",
-    "page_number": 328,
-    "description": "A dystopian novel about surveillance and totalitarianism.",
-    "language": "English",
-    "user": 1,
-    "author": 1,
-    "publication": 1
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 2,
-  "fields": {
-    "title": "Animal Farm",
-    "date": "1945-08-17",
-    "isbn": "9780451526342",
-    "page_number": 112,
-    "description": "A political allegory about a farm ruled by animals.",
-    "language": "English",
-    "user": 1,
-    "author": 1,
-    "publication": 1
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 3,
-  "fields": {
-    "title": "Harry Potter and the Philosopher's Stone",
-    "date": "1997-06-26",
-    "isbn": "9780747532699",
-    "page_number": 223,
-    "description": "A young wizard begins his magical journey.",
-    "language": "English",
-    "user": 1,
-    "author": 2,
-    "publication": 2
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 4,
-  "fields": {
-    "title": "The Hobbit",
-    "date": "1937-09-21",
-    "isbn": "9780618968633",
-    "page_number": 310,
-    "description": "A hobbit embarks on an unexpected adventure.",
-    "language": "English",
-    "user": 1,
-    "author": 3,
-    "publication": 3
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 5,
-  "fields": {
-    "title": "Kafka on the Shore",
-    "date": "1813-01-28",
-    "isbn": "9781503290563",
-    "page_number": 279,
-    "description": "A romantic novel about manners and marriage.",
-    "language": "English",
-    "user": 1,
-    "author": 4,
-    "publication": 4
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 6,
-  "fields": {
-    "title": "Pride and Prejudice",
-    "date": "1813-01-28",
-    "isbn": "9781503290563",
-    "page_number": 279,
-    "description": "A romantic novel about manners and marriage.",
-    "language": "English",
-    "user": 1,
-    "author": 5,
-    "publication": 5
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 7,
-  "fields": {
-    "title": "The Great Gatsby",
-    "date": "1925-04-10",
-    "isbn": "9780743273565",
-    "page_number": 180,
-    "description": "A story of wealth and the American dream.",
-    "language": "English",
-    "user": 1,
-    "author": 6,
-    "publication": 6
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 8,
-  "fields": {
-    "title": "To Kill a Mockingbird",
-    "date": "1960-07-11",
-    "isbn": "9780061120084",
-    "page_number": 281,
-    "description": "A novel about racial injustice in the Deep South.",
-    "language": "English",
-    "user": 1,
-    "author": 7,
-    "publication": 7
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 9,
-  "fields": {
-    "title": "Moby-Dick",
-    "date": "1851-10-18",
-    "isbn": "9781503280786",
-    "page_number": 635,
-    "description": "A quest to hunt a legendary white whale.",
-    "language": "English",
-    "user": 1,
-    "author": 8,
-    "publication": 8
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 10,
-  "fields": {
-    "title": "War and Peace",
-    "date": "1869-01-01",
-    "isbn": "9780199232765",
-    "page_number": 1225,
-    "description": "A historical novel set during the Napoleonic wars.",
-    "language": "Russian",
-    "user": 1,
-    "author": 9,
-    "publication": 9
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 11,
-  "fields": {
-    "title": "Harry Potter and the Chamber of Secrets",
-    "date": "1998-07-02",
-    "isbn": "9780747538493",
-    "page_number": 251,
-    "description": "Harry returns to Hogwarts and uncovers a dark mystery within the school.",
-    "language": "English",
-    "user": 1,
-    "author": 2,
-    "publication": 2
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 12,
-  "fields": {
-    "title": "Norwegian Wood",
-    "date": "1987-09-04",
-    "isbn": "9780375704024",
-    "page_number": 296,
-    "description": "A nostalgic novel about love, loss, and youth.",
-    "language": "Japanese",
-    "user": 1,
-    "author": 4,
-    "publication": 4
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 13,
-  "fields": {
-    "title": "Sense and Sensibility",
-    "date": "1811-10-30",
-    "isbn": "9781503290310",
-    "page_number": 409,
-    "description": "A story of two sisters navigating romance and hardship.",
-    "language": "English",
-    "user": 1,
-    "author": 5,
-    "publication": 5
-  }
-},
-{
-  "model": "Leselystapp.books",
-  "pk": 14,
-  "fields": {
-    "title": "Crime and Punishment",
-    "date": "1866-01-01",
-    "isbn": "9780143058144",
-    "page_number": 671,
-    "description": "A psychological exploration of guilt and redemption.",
-    "language": "Russian",
-    "user": 1,
-    "author": 10,
-    "publication": 9
-  }
-},
-{
   "model": "Leselystapp.authors",
   "pk": 1,
   "fields": {
@@ -425,1182 +215,10 @@
   }
 },
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2026-03-24T14:34:19.142Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "George Orwell",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2026-03-24T14:34:28.736Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "J.K. Rowling",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2026-03-24T14:34:36.846Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "J.R.R. Tolkien",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2026-03-24T14:34:59.210Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "Haruki Murakami",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2026-03-24T14:38:48.854Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "5",
-    "object_repr": "Jane Austen",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2026-03-24T14:38:57.297Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "6",
-    "object_repr": "F. Scott Fitzgerald",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2026-03-24T14:39:08.545Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "7",
-    "object_repr": "Harper Lee",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2026-03-24T14:39:15.649Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "8",
-    "object_repr": "Herman Melville",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2026-03-24T14:39:23.648Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "9",
-    "object_repr": "Leo Tolstoy",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2026-03-24T14:39:37.183Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "10",
-    "object_repr": "Fyodor Dostoevsky",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2026-03-24T14:39:49.293Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "10",
-    "object_repr": "Fyodor Dostoevsky",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2026-03-24T14:41:06.326Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "1",
-    "object_repr": "Secker & Warburg",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2026-03-24T14:41:15.766Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "2",
-    "object_repr": "Bloomsbury",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2026-03-24T14:41:24.123Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "3",
-    "object_repr": "Allen & Unwin",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 15,
-  "fields": {
-    "action_time": "2026-03-24T14:41:36.065Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "4",
-    "object_repr": "Shinchosha",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 16,
-  "fields": {
-    "action_time": "2026-03-24T14:41:44.817Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "5",
-    "object_repr": "T. Egerton",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 17,
-  "fields": {
-    "action_time": "2026-03-24T14:41:54.167Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "6",
-    "object_repr": "Scribner",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 18,
-  "fields": {
-    "action_time": "2026-03-24T14:42:02.963Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "7",
-    "object_repr": "J.B. Lippincott & Co.",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 19,
-  "fields": {
-    "action_time": "2026-03-24T14:42:10.823Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "8",
-    "object_repr": "Harper & Brothers",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 20,
-  "fields": {
-    "action_time": "2026-03-24T14:42:20.252Z",
-    "user": 1,
-    "content_type": 15,
-    "object_id": "9",
-    "object_repr": "The Russian Messenger",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 21,
-  "fields": {
-    "action_time": "2026-03-24T14:42:51.502Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "1",
-    "object_repr": "Dystopian",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 22,
-  "fields": {
-    "action_time": "2026-03-24T14:42:56.123Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "2",
-    "object_repr": "Fantasy",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 23,
-  "fields": {
-    "action_time": "2026-03-24T14:43:02.262Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "3",
-    "object_repr": "Adventure",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 24,
-  "fields": {
-    "action_time": "2026-03-24T14:43:08.715Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "4",
-    "object_repr": "Magical Realism",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 25,
-  "fields": {
-    "action_time": "2026-03-24T14:43:16.652Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "5",
-    "object_repr": "Romance",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 26,
-  "fields": {
-    "action_time": "2026-03-24T14:43:20.975Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "6",
-    "object_repr": "Fiction",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 27,
-  "fields": {
-    "action_time": "2026-03-24T14:43:26.311Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "7",
-    "object_repr": "Adventure",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 28,
-  "fields": {
-    "action_time": "2026-03-24T14:43:30.393Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "8",
-    "object_repr": "Historical",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 29,
-  "fields": {
-    "action_time": "2026-03-24T14:43:35.008Z",
-    "user": 1,
-    "content_type": 14,
-    "object_id": "9",
-    "object_repr": "Psychological",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 30,
-  "fields": {
-    "action_time": "2026-03-24T14:51:49.948Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "1984",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 31,
-  "fields": {
-    "action_time": "2026-03-24T14:52:39.129Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "2",
-    "object_repr": "Animal Farm",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 32,
-  "fields": {
-    "action_time": "2026-03-24T14:53:20.785Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "3",
-    "object_repr": "Harry Potter and the Philosopher's Stone",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 33,
-  "fields": {
-    "action_time": "2026-03-24T14:54:01.953Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "4",
-    "object_repr": "The Hobbit",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 34,
-  "fields": {
-    "action_time": "2026-03-24T14:54:49.232Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "5",
-    "object_repr": "Kafka on the Shore",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 35,
-  "fields": {
-    "action_time": "2026-03-24T14:55:40.164Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "6",
-    "object_repr": "Pride and Prejudice",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 36,
-  "fields": {
-    "action_time": "2026-03-24T14:56:23.671Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "7",
-    "object_repr": "The Great Gatsby",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 37,
-  "fields": {
-    "action_time": "2026-03-24T14:57:07.122Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "8",
-    "object_repr": "To Kill a Mockingbird",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 38,
-  "fields": {
-    "action_time": "2026-03-24T14:57:49.782Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "9",
-    "object_repr": "Moby-Dick",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 39,
-  "fields": {
-    "action_time": "2026-03-24T14:58:53.863Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "10",
-    "object_repr": "War and Peace",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 40,
-  "fields": {
-    "action_time": "2026-03-24T15:09:47.714Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "11",
-    "object_repr": "Harry Potter and the Chamber of Secrets",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 41,
-  "fields": {
-    "action_time": "2026-03-24T15:10:28.611Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "12",
-    "object_repr": "Norwegian Wood",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 42,
-  "fields": {
-    "action_time": "2026-03-24T15:11:06.583Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "13",
-    "object_repr": "Sense and Sensibility",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 43,
-  "fields": {
-    "action_time": "2026-03-24T15:11:44.748Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "14",
-    "object_repr": "Crime and Punishment",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can view log entry",
-    "content_type": 1,
-    "codename": "view_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 3,
-    "codename": "add_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 3,
-    "codename": "change_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 7,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 3,
-    "codename": "delete_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 8,
-  "fields": {
-    "name": "Can view permission",
-    "content_type": 3,
-    "codename": "view_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 9,
-  "fields": {
-    "name": "Can add group",
-    "content_type": 2,
-    "codename": "add_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can change group",
-    "content_type": 2,
-    "codename": "change_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can delete group",
-    "content_type": 2,
-    "codename": "delete_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can view group",
-    "content_type": 2,
-    "codename": "view_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add user",
-    "content_type": 4,
-    "codename": "add_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 4,
-    "codename": "change_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 4,
-    "codename": "delete_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can view user",
-    "content_type": 4,
-    "codename": "view_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 17,
-  "fields": {
-    "name": "Can add content type",
-    "content_type": 5,
-    "codename": "add_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 18,
-  "fields": {
-    "name": "Can change content type",
-    "content_type": 5,
-    "codename": "change_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 19,
-  "fields": {
-    "name": "Can delete content type",
-    "content_type": 5,
-    "codename": "delete_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 20,
-  "fields": {
-    "name": "Can view content type",
-    "content_type": 5,
-    "codename": "view_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 21,
-  "fields": {
-    "name": "Can add session",
-    "content_type": 6,
-    "codename": "add_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 22,
-  "fields": {
-    "name": "Can change session",
-    "content_type": 6,
-    "codename": "change_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 23,
-  "fields": {
-    "name": "Can delete session",
-    "content_type": 6,
-    "codename": "delete_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 24,
-  "fields": {
-    "name": "Can view session",
-    "content_type": 6,
-    "codename": "view_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 25,
-  "fields": {
-    "name": "Can add Publication",
-    "content_type": 15,
-    "codename": "add_publications"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 26,
-  "fields": {
-    "name": "Can change Publication",
-    "content_type": 15,
-    "codename": "change_publications"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 27,
-  "fields": {
-    "name": "Can delete Publication",
-    "content_type": 15,
-    "codename": "delete_publications"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 28,
-  "fields": {
-    "name": "Can view Publication",
-    "content_type": 15,
-    "codename": "view_publications"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 29,
-  "fields": {
-    "name": "Can add Genre",
-    "content_type": 14,
-    "codename": "add_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 30,
-  "fields": {
-    "name": "Can change Genre",
-    "content_type": 14,
-    "codename": "change_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 31,
-  "fields": {
-    "name": "Can delete Genre",
-    "content_type": 14,
-    "codename": "delete_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 32,
-  "fields": {
-    "name": "Can view Genre",
-    "content_type": 14,
-    "codename": "view_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 33,
-  "fields": {
-    "name": "Can add Review",
-    "content_type": 17,
-    "codename": "add_reviews"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 34,
-  "fields": {
-    "name": "Can change Review",
-    "content_type": 17,
-    "codename": "change_reviews"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 35,
-  "fields": {
-    "name": "Can delete Review",
-    "content_type": 17,
-    "codename": "delete_reviews"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 36,
-  "fields": {
-    "name": "Can view Review",
-    "content_type": 17,
-    "codename": "view_reviews"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 37,
-  "fields": {
-    "name": "Can add Book",
-    "content_type": 10,
-    "codename": "add_books"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 38,
-  "fields": {
-    "name": "Can change Book",
-    "content_type": 10,
-    "codename": "change_books"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 39,
-  "fields": {
-    "name": "Can delete Book",
-    "content_type": 10,
-    "codename": "delete_books"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 40,
-  "fields": {
-    "name": "Can view Book",
-    "content_type": 10,
-    "codename": "view_books"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 41,
-  "fields": {
-    "name": "Can add Comment",
-    "content_type": 12,
-    "codename": "add_comments"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 42,
-  "fields": {
-    "name": "Can change Comment",
-    "content_type": 12,
-    "codename": "change_comments"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 43,
-  "fields": {
-    "name": "Can delete Comment",
-    "content_type": 12,
-    "codename": "delete_comments"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 44,
-  "fields": {
-    "name": "Can view Comment",
-    "content_type": 12,
-    "codename": "view_comments"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 45,
-  "fields": {
-    "name": "Can add Book Genre",
-    "content_type": 8,
-    "codename": "add_book_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 46,
-  "fields": {
-    "name": "Can change Book Genre",
-    "content_type": 8,
-    "codename": "change_book_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 47,
-  "fields": {
-    "name": "Can delete Book Genre",
-    "content_type": 8,
-    "codename": "delete_book_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 48,
-  "fields": {
-    "name": "Can view Book Genre",
-    "content_type": 8,
-    "codename": "view_book_genres"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 49,
-  "fields": {
-    "name": "Can add Author",
-    "content_type": 7,
-    "codename": "add_authors"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 50,
-  "fields": {
-    "name": "Can change Author",
-    "content_type": 7,
-    "codename": "change_authors"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 51,
-  "fields": {
-    "name": "Can delete Author",
-    "content_type": 7,
-    "codename": "delete_authors"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 52,
-  "fields": {
-    "name": "Can view Author",
-    "content_type": 7,
-    "codename": "view_authors"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 53,
-  "fields": {
-    "name": "Can add Favourite",
-    "content_type": 13,
-    "codename": "add_favourites"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 54,
-  "fields": {
-    "name": "Can change Favourite",
-    "content_type": 13,
-    "codename": "change_favourites"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 55,
-  "fields": {
-    "name": "Can delete Favourite",
-    "content_type": 13,
-    "codename": "delete_favourites"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 56,
-  "fields": {
-    "name": "Can view Favourite",
-    "content_type": 13,
-    "codename": "view_favourites"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 57,
-  "fields": {
-    "name": "Can add Book in List",
-    "content_type": 11,
-    "codename": "add_books_in_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 58,
-  "fields": {
-    "name": "Can change Book in List",
-    "content_type": 11,
-    "codename": "change_books_in_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 59,
-  "fields": {
-    "name": "Can delete Book in List",
-    "content_type": 11,
-    "codename": "delete_books_in_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 60,
-  "fields": {
-    "name": "Can view Book in List",
-    "content_type": 11,
-    "codename": "view_books_in_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 61,
-  "fields": {
-    "name": "Can add Reading Status",
-    "content_type": 16,
-    "codename": "add_reading_status"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 62,
-  "fields": {
-    "name": "Can change Reading Status",
-    "content_type": 16,
-    "codename": "change_reading_status"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 63,
-  "fields": {
-    "name": "Can delete Reading Status",
-    "content_type": 16,
-    "codename": "delete_reading_status"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 64,
-  "fields": {
-    "name": "Can view Reading Status",
-    "content_type": 16,
-    "codename": "view_reading_status"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 65,
-  "fields": {
-    "name": "Can add Book List",
-    "content_type": 9,
-    "codename": "add_book_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 66,
-  "fields": {
-    "name": "Can change Book List",
-    "content_type": 9,
-    "codename": "change_book_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 67,
-  "fields": {
-    "name": "Can delete Book List",
-    "content_type": 9,
-    "codename": "delete_book_list"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 68,
-  "fields": {
-    "name": "Can view Book List",
-    "content_type": 9,
-    "codename": "view_book_list"
-  }
-},
-{
   "model": "auth.user",
-  "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1200000$4Jt0mWo6hoBytQR1GBwzZn$q8rEygce+JcAWspZQinsuyackKaUpXZpDKfjOToBRWI=",
-    "last_login": "2026-03-24T14:25:02.949Z",
+    "last_login": "2026-06-03T01:09:14.242Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -1614,139 +232,105 @@
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 1,
+  "model": "auth.user",
   "fields": {
-    "app_label": "admin",
-    "model": "logentry"
+    "password": "pbkdf2_sha256$1200000$wmn5Yidg3eMuBS3U2yVS3v$I0YQ9y4acfWtnRgj0bCR9C7t0Ydvj2leewD09Z3p5E0=",
+    "last_login": "2026-06-03T01:05:04.809Z",
+    "is_superuser": false,
+    "username": "emma_reads",
+    "first_name": "Emma",
+    "last_name": "Larsson",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-12T21:56:18.323Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 2,
+  "model": "auth.user",
   "fields": {
-    "app_label": "auth",
-    "model": "group"
+    "password": "pbkdf2_sha256$1200000$hmw30d0rhXiOA6J3MfHYjA$F+v0PYCxKtFqULFsSuCscKng2Or6j0x6rHNTHz0segE=",
+    "last_login": "2026-06-03T01:05:34.991Z",
+    "is_superuser": false,
+    "username": "jonas_bookclub",
+    "first_name": "Jonas",
+    "last_name": "Berg",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-13T20:56:19.536Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 3,
+  "model": "auth.user",
   "fields": {
-    "app_label": "auth",
-    "model": "permission"
+    "password": "pbkdf2_sha256$1200000$rx2rUdWrETOKKDCup3GF8H$EJyxPiFOpAXE/21RfrrShDLSrQonItMrnXx9l2OeaNI=",
+    "last_login": "2026-06-03T01:06:09.573Z",
+    "is_superuser": false,
+    "username": "sofia_pages",
+    "first_name": "Sofia",
+    "last_name": "Andersen",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-12T23:56:20.744Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 4,
+  "model": "auth.user",
   "fields": {
-    "app_label": "auth",
-    "model": "user"
+    "password": "pbkdf2_sha256$1200000$tFLXXnufyENBroHuKJCQa6$4KfA2t+wyfm8Z4M5x1mpDho5emknm6lab/+Jl6iEa4c=",
+    "last_login": "2026-06-03T01:06:38.369Z",
+    "is_superuser": false,
+    "username": "erik_literary",
+    "first_name": "Erik",
+    "last_name": "Haugen",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-12T22:56:21.958Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 5,
+  "model": "auth.user",
   "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
+    "password": "pbkdf2_sha256$1200000$Cm1EswT4teGALeTiVnC3de$bjWL8oUaqDnwiSRfHUz9ehvyC6qYx4uNY9QPLNUyot8=",
+    "last_login": "2026-06-03T01:07:10.429Z",
+    "is_superuser": false,
+    "username": "maja_stories",
+    "first_name": "Maja",
+    "last_name": "Nilsson",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-14T00:56:23.172Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 6,
+  "model": "auth.user",
   "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "authors"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 8,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "book_genres"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 9,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "book_list"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 10,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "books"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 11,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "books_in_list"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 12,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "comments"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 13,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "favourites"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 14,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "genres"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 15,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "publications"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 16,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "reading_status"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 17,
-  "fields": {
-    "app_label": "Leselystapp",
-    "model": "reviews"
+    "password": "pbkdf2_sha256$1200000$k7i4Uah72soTPTi2R6Uxtf$oXNig6vvDmueLTtn8d5Wo/8XEoyAk2Pw9zrYNNcofzs=",
+    "last_login": "2026-06-03T01:07:54.043Z",
+    "is_superuser": false,
+    "username": "r",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-03T01:07:52.832Z",
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
@@ -1755,6 +339,2508 @@
   "fields": {
     "session_data": ".eJxVjDsOwjAQBe_iGln-rNc2JT1nsNY_HECOFCcV4u4QKQW0b2beiwXa1ha2UZYwZXZmkp1-t0jpUfoO8p36beZp7usyRb4r_KCDX-dcnpfD_TtoNNq3huSk0CUnEJoMItUICMKhT9WTt0Z7YUBZomK9qoayRnQolAGSVhn2_gDJETa6:1w52go:0L3eHWb4z20XrNzVdR06q3snZQwogQpwoEnNY7G922k",
     "expire_date": "2026-04-07T14:25:02.951Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u20wtox2tqx61t5u7gxdpia2zknqk616",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rNc2JT1nsNY_HECOFCcV4u4QKQW0b2beiwXa1ha2UZYwZXZmkp1-t0jpUfoO8p36beZp7usyRb4r_KCDX-dcnpfD_TtoNNq3huSk0CUnEJoMItUICMKhT9WTt0Z7YUBZomK9qoayRnQolAGSVhn2_gDJETa6:1wUa6c:QBYf6874CPt0SDne1I7-HkA4haL8sABjc2Fa5ygoHWs",
+    "expire_date": "2026-06-17T01:09:14.244Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-24T14:34:19.142Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "1",
+    "object_repr": "George Orwell",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-24T14:34:28.736Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "2",
+    "object_repr": "J.K. Rowling",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-03-24T14:34:36.846Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "3",
+    "object_repr": "J.R.R. Tolkien",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-03-24T14:34:59.210Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "4",
+    "object_repr": "Haruki Murakami",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-24T14:38:48.854Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "5",
+    "object_repr": "Jane Austen",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-24T14:38:57.297Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "6",
+    "object_repr": "F. Scott Fitzgerald",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-24T14:39:08.545Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "7",
+    "object_repr": "Harper Lee",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-03-24T14:39:15.649Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "8",
+    "object_repr": "Herman Melville",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-03-24T14:39:23.648Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "9",
+    "object_repr": "Leo Tolstoy",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-03-24T14:39:37.183Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "10",
+    "object_repr": "Fyodor Dostoevsky",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-03-24T14:39:49.293Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "authors"
+    ],
+    "object_id": "10",
+    "object_repr": "Fyodor Dostoevsky",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-03-24T14:41:06.326Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "1",
+    "object_repr": "Secker & Warburg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-03-24T14:41:15.766Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "2",
+    "object_repr": "Bloomsbury",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-03-24T14:41:24.123Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "3",
+    "object_repr": "Allen & Unwin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-03-24T14:41:36.065Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "4",
+    "object_repr": "Shinchosha",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-03-24T14:41:44.817Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "5",
+    "object_repr": "T. Egerton",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-03-24T14:41:54.167Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "6",
+    "object_repr": "Scribner",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-03-24T14:42:02.963Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "7",
+    "object_repr": "J.B. Lippincott & Co.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-03-24T14:42:10.823Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "8",
+    "object_repr": "Harper & Brothers",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-03-24T14:42:20.252Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "publications"
+    ],
+    "object_id": "9",
+    "object_repr": "The Russian Messenger",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-03-24T14:42:51.502Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "1",
+    "object_repr": "Dystopian",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-03-24T14:42:56.123Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "2",
+    "object_repr": "Fantasy",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-03-24T14:43:02.262Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "3",
+    "object_repr": "Adventure",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-03-24T14:43:08.715Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "4",
+    "object_repr": "Magical Realism",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-03-24T14:43:16.652Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "5",
+    "object_repr": "Romance",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-03-24T14:43:20.975Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "6",
+    "object_repr": "Fiction",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-03-24T14:43:26.311Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "7",
+    "object_repr": "Adventure",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-03-24T14:43:30.393Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "8",
+    "object_repr": "Historical",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-03-24T14:43:35.008Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "genres"
+    ],
+    "object_id": "9",
+    "object_repr": "Psychological",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-03-24T14:51:49.948Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "1",
+    "object_repr": "1984",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-03-24T14:52:39.129Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "2",
+    "object_repr": "Animal Farm",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-03-24T14:53:20.785Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "3",
+    "object_repr": "Harry Potter and the Philosopher's Stone",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-03-24T14:54:01.953Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "4",
+    "object_repr": "The Hobbit",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-03-24T14:54:49.232Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "5",
+    "object_repr": "Kafka on the Shore",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-03-24T14:55:40.164Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "6",
+    "object_repr": "Pride and Prejudice",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-03-24T14:56:23.671Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "7",
+    "object_repr": "The Great Gatsby",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-03-24T14:57:07.122Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "8",
+    "object_repr": "To Kill a Mockingbird",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-03-24T14:57:49.782Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "9",
+    "object_repr": "Moby-Dick",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-03-24T14:58:53.863Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "10",
+    "object_repr": "War and Peace",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-03-24T15:09:47.714Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "11",
+    "object_repr": "Harry Potter and the Chamber of Secrets",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-03-24T15:10:28.611Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "12",
+    "object_repr": "Norwegian Wood",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-03-24T15:11:06.583Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "13",
+    "object_repr": "Sense and Sensibility",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-03-24T15:11:44.748Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "14",
+    "object_repr": "Crime and Punishment",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-06-02T20:28:52.173Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "11",
+    "object_repr": "Harry Potter and the Chamber of Secrets",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-06-02T20:29:39.731Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "3",
+    "object_repr": "Harry Potter and the Philosopher's Stone",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-06-02T20:29:59.767Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "12",
+    "object_repr": "Norwegian Wood",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-06-02T20:30:19.896Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "8",
+    "object_repr": "To Kill a Mockingbird",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-06-02T20:30:41.789Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "1",
+    "object_repr": "1984",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-06-02T20:31:17.636Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "2",
+    "object_repr": "Animal Farm",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-06-02T20:31:39.276Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "4",
+    "object_repr": "The Hobbit",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-06-02T20:32:33.778Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "7",
+    "object_repr": "The Great Gatsby",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-06-02T20:33:18.843Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "10",
+    "object_repr": "War and Peace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-06-02T20:33:41.077Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "14",
+    "object_repr": "Crime and Punishment",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-06-02T20:34:07.020Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "9",
+    "object_repr": "Moby-Dick",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-06-02T20:34:28.135Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "6",
+    "object_repr": "Pride and Prejudice",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-06-02T20:34:47.367Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "5",
+    "object_repr": "Kafka on the Shore",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-06-02T20:35:05.358Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "13",
+    "object_repr": "Sense and Sensibility",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-06-02T21:50:40.143Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "11",
+    "object_repr": "Harry Potter and the Chamber of Secrets",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-06-02T21:54:08.729Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "Leselystapp",
+      "books"
+    ],
+    "object_id": "11",
+    "object_repr": "Harry Potter and the Chamber of Secrets",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cover url\"]}}]"
+  }
+},
+{
+  "model": "Leselystapp.readingchallenge",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "year": 2026,
+    "goal": 4,
+    "end_date": "2026-06-27"
+  }
+},
+{
+  "model": "Leselystapp.readingchallenge",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "year": 2026,
+    "goal": 8,
+    "end_date": "2026-06-17"
+  }
+},
+{
+  "model": "Leselystapp.readingchallenge",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "year": 2026,
+    "goal": 3,
+    "end_date": "2026-06-20"
+  }
+},
+{
+  "model": "Leselystapp.readingchallenge",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "year": 2026,
+    "goal": 5,
+    "end_date": "2026-06-20"
+  }
+},
+{
+  "model": "Leselystapp.readingchallenge",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "year": 2026,
+    "goal": 25,
+    "end_date": "2026-06-26"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 11,
+    "added_at": "2026-06-02T22:40:39.461Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 4,
+    "added_at": "2026-06-02T23:26:26.408Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 11,
+    "added_at": "2026-06-03T00:56:23.264Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 8,
+    "added_at": "2026-06-03T00:56:23.269Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 12,
+    "added_at": "2026-06-03T00:56:23.271Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 1,
+    "added_at": "2026-06-03T00:56:23.275Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 14,
+    "added_at": "2026-06-03T00:56:23.278Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 10,
+    "added_at": "2026-06-03T00:56:23.281Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 5,
+    "added_at": "2026-06-03T00:56:23.284Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 12,
+    "added_at": "2026-06-03T00:56:23.287Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 6,
+    "added_at": "2026-06-03T00:56:23.290Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 1,
+    "added_at": "2026-06-03T00:56:23.293Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 2,
+    "added_at": "2026-06-03T00:56:23.296Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 14,
+    "added_at": "2026-06-03T00:56:23.299Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 6,
+    "added_at": "2026-06-03T00:56:23.302Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 13,
+    "added_at": "2026-06-03T00:56:23.304Z"
+  }
+},
+{
+  "model": "Leselystapp.favourites",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 7,
+    "added_at": "2026-06-03T00:56:23.307Z"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 12,
+    "status": "not started"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 11,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 3,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 2,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "book": 4,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 11,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 3,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 8,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 6,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "book": 12,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 1,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 2,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 10,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 14,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "book": 9,
+    "status": "not started"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 12,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 5,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 11,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 6,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "book": 8,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 1,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 2,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 14,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 10,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "book": 4,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 26,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 6,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 27,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 13,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 28,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 7,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 29,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 11,
+    "status": "finished"
+  }
+},
+{
+  "model": "Leselystapp.reading_status",
+  "pk": 30,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "book": 3,
+    "status": "reading"
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "title": "Fantasy",
+    "description": "",
+    "is_public": true,
+    "created_at": "2026-06-02T23:02:15.062Z",
+    "books": [
+      11
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "title": "4",
+    "description": "",
+    "is_public": false,
+    "created_at": "2026-06-02T23:11:17.550Z",
+    "books": [
+      12
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "title": "My favourite classics",
+    "description": "Books that shaped who I am as a reader.",
+    "is_public": true,
+    "created_at": "2026-05-14T19:56:23.486Z",
+    "books": [
+      12,
+      8,
+      7,
+      6
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "title": "Essential dystopian reads",
+    "description": "If you want to understand power, read these.",
+    "is_public": true,
+    "created_at": "2026-05-17T23:56:23.497Z",
+    "books": [
+      1,
+      2,
+      14
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "title": "Murakami universe",
+    "description": "All things Murakami and books that feel like him.",
+    "is_public": true,
+    "created_at": "2026-05-19T19:56:23.506Z",
+    "books": [
+      12,
+      5
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "title": "Great Russian literature",
+    "description": "The heavyweights. Challenging but life-changing.",
+    "is_public": true,
+    "created_at": "2026-05-15T19:56:23.515Z",
+    "books": [
+      10,
+      14
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "title": "Cozy reads",
+    "description": "Perfect books for rainy evenings with tea.",
+    "is_public": true,
+    "created_at": "2026-05-13T23:56:23.528Z",
+    "books": [
+      11,
+      3,
+      6,
+      13
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "title": "Want to read soon",
+    "description": "My TBR pile.",
+    "is_public": false,
+    "created_at": "2026-05-23T22:56:23.540Z",
+    "books": [
+      10,
+      9,
+      5
+    ]
+  }
+},
+{
+  "model": "Leselystapp.book_list",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "title": "Currently obsessed with",
+    "description": "Books I keep recommending to everyone.",
+    "is_public": true,
+    "created_at": "2026-05-25T19:56:23.551Z",
+    "books": [
+      1,
+      10,
+      14
+    ]
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 1,
+  "fields": {
+    "book": 11,
+    "user": [
+      "admin"
+    ],
+    "rating": 5,
+    "datetime": "2026-06-02T23:57:51.337Z",
+    "description": "Harry Potter and the Chamber of Secrets is a magical and exciting sequel that keeps readers hooked from start to finish. The mystery of the Chamber, the unforgettable characters, and the thrilling adventures at Hogwarts make this book impossible to put down. J.K. Rowling brilliantly combines suspense, humor, and friendship, creating a story that is both entertaining and heartwarming. A fantastic read for all ages!",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 2,
+  "fields": {
+    "book": 11,
+    "user": [
+      "emma_reads"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-15T20:56:23.314Z",
+    "description": "Even better than the first one. The mystery of the Chamber kept me up all night. Rowling builds such a rich world — every reread reveals something new.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 3,
+  "fields": {
+    "book": 8,
+    "user": [
+      "emma_reads"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-18T19:56:23.319Z",
+    "description": "One of the most important books I've ever read. Atticus Finch is the moral compass we all need. The way it handles race and injustice still feels painfully relevant.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 4,
+  "fields": {
+    "book": 12,
+    "user": [
+      "emma_reads"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-21T23:56:23.324Z",
+    "description": "Beautifully melancholic. Murakami writes loneliness better than anyone. The atmosphere is so thick you feel like you're living inside a memory.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 5,
+  "fields": {
+    "book": 1,
+    "user": [
+      "jonas_bookclub"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-13T22:56:23.329Z",
+    "description": "A masterpiece that gets more terrifying every year. The concept of doublethink feels less like fiction every time I read the news. Essential reading.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 6,
+  "fields": {
+    "book": 2,
+    "user": [
+      "jonas_bookclub"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-17T00:56:23.333Z",
+    "description": "Short but devastating. The way Orwell uses a simple farm fable to expose the mechanics of totalitarianism is genius. 'All animals are equal' hits different every time.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 7,
+  "fields": {
+    "book": 14,
+    "user": [
+      "jonas_bookclub"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-19T19:56:23.338Z",
+    "description": "Dostoevsky gets inside your head. Raskolnikov's internal monologue is exhausting in the best way — you feel his guilt before he does. One of the greatest psychological novels ever written.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 8,
+  "fields": {
+    "book": 5,
+    "user": [
+      "sofia_pages"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-14T21:56:23.343Z",
+    "description": "Strange, dreamlike and completely unforgettable. Murakami at his most mysterious. I finished it not fully understanding it and loved it anyway.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 9,
+  "fields": {
+    "book": 12,
+    "user": [
+      "sofia_pages"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-18T00:56:23.348Z",
+    "description": "This book made me cry on public transport. The grief feels so honest. It's quiet and devastating and I think about it all the time.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 10,
+  "fields": {
+    "book": 6,
+    "user": [
+      "sofia_pages"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-23T19:56:23.353Z",
+    "description": "Austen is so sharp and funny — the social commentary is disguised as romance but it's razor sharp. Darcy's letter scene is one of the best in all of literature.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 11,
+  "fields": {
+    "book": 1,
+    "user": [
+      "erik_literary"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-13T00:56:23.358Z",
+    "description": "I first read this as a teenager and it changed how I see the world. Every few years I reread it and find new layers. Orwell was a prophet.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 12,
+  "fields": {
+    "book": 14,
+    "user": [
+      "erik_literary"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-20T21:56:23.363Z",
+    "description": "Dense and rewarding. Dostoevsky demands patience but rewards it enormously. The epilogue is underrated — the redemption feels earned.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 13,
+  "fields": {
+    "book": 10,
+    "user": [
+      "erik_literary"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-25T22:56:23.367Z",
+    "description": "An enormous undertaking to read but worth every page. Tolstoy captures the chaos of war and the smallness of individual lives within it better than anyone.",
+    "spoilers": true
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 14,
+  "fields": {
+    "book": 6,
+    "user": [
+      "maja_stories"
+    ],
+    "rating": 5,
+    "datetime": "2026-05-13T20:56:23.372Z",
+    "description": "My comfort book. I've read it four times and it gets better every time. The wit is perfect, the romance is perfect, everything is perfect.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 15,
+  "fields": {
+    "book": 13,
+    "user": [
+      "maja_stories"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-18T20:56:23.377Z",
+    "description": "Underrated compared to Pride and Prejudice but just as sharp. Elinor is one of Austen's best characters — so controlled on the surface but so emotional underneath.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.reviews",
+  "pk": 16,
+  "fields": {
+    "book": 7,
+    "user": [
+      "maja_stories"
+    ],
+    "rating": 4,
+    "datetime": "2026-05-22T22:56:23.382Z",
+    "description": "The prose is stunning — almost too beautiful. Fitzgerald makes you feel the excess and the emptiness at the same time. The green light gets me every time.",
+    "spoilers": false
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 1,
+  "fields": {
+    "review": 2,
+    "user": [
+      "jonas_bookclub"
+    ],
+    "comment": "Completely agree! The basilisk reveal is so well built up. Did you notice all the hints on a reread?",
+    "datetime": "2026-05-16T23:56:23.387Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 2,
+  "fields": {
+    "review": 4,
+    "user": [
+      "sofia_pages"
+    ],
+    "comment": "This is exactly how I felt too. The way time feels warped in that book is so unusual.",
+    "datetime": "2026-05-22T22:56:23.391Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 3,
+  "fields": {
+    "review": 5,
+    "user": [
+      "emma_reads"
+    ],
+    "comment": "The doublethink chapter is the most disturbing thing I've ever read. Room 101 still haunts me.",
+    "datetime": "2026-05-14T20:56:23.429Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 4,
+  "fields": {
+    "review": 5,
+    "user": [
+      "maja_stories"
+    ],
+    "comment": "I read this for school and couldn't stop thinking about it for weeks. Your review captures it perfectly.",
+    "datetime": "2026-05-15T22:56:23.436Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 5,
+  "fields": {
+    "review": 7,
+    "user": [
+      "erik_literary"
+    ],
+    "comment": "The scene where he confesses to Sonya is incredible. Dostoevsky handles that moment with such care.",
+    "datetime": "2026-05-20T20:56:23.440Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 6,
+  "fields": {
+    "review": 8,
+    "user": [
+      "emma_reads"
+    ],
+    "comment": "I need to read this now based on your review. I loved Norwegian Wood so Murakami on even stranger ground sounds perfect.",
+    "datetime": "2026-05-18T21:56:23.446Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 7,
+  "fields": {
+    "review": 10,
+    "user": [
+      "maja_stories"
+    ],
+    "comment": "Darcy's letter is my favourite scene in all of fiction. The first time you read it vs knowing what's coming — completely different experience.",
+    "datetime": "2026-05-24T22:56:23.450Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 8,
+  "fields": {
+    "review": 11,
+    "user": [
+      "sofia_pages"
+    ],
+    "comment": "I read this last year and had the same reaction. The appendix on Newspeak is so chilling because it's written in past tense.",
+    "datetime": "2026-05-13T23:56:23.453Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 9,
+  "fields": {
+    "review": 13,
+    "user": [
+      "jonas_bookclub"
+    ],
+    "comment": "Tolstoy's battle scenes are incredible. Did you find the philosophical digressions slowed it down or added to it?",
+    "datetime": "2026-05-26T20:56:23.457Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 10,
+  "fields": {
+    "review": 14,
+    "user": [
+      "emma_reads"
+    ],
+    "comment": "Four times! I've only read it twice but I felt the same improvement second time. Which adaptation do you prefer?",
+    "datetime": "2026-05-14T21:56:23.461Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 11,
+  "fields": {
+    "review": 16,
+    "user": [
+      "sofia_pages"
+    ],
+    "comment": "The green light is everything. Fitzgerald packs so much into that one image. Your review made me want to reread it.",
+    "datetime": "2026-05-23T22:56:23.465Z"
+  }
+},
+{
+  "model": "Leselystapp.comments",
+  "pk": 12,
+  "fields": {
+    "review": 15,
+    "user": [
+      "erik_literary"
+    ],
+    "comment": "Elinor is so underappreciated. Everyone talks about Elizabeth Bennet but Elinor's arc is just as moving.",
+    "datetime": "2026-05-19T22:56:23.469Z"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 1,
+  "fields": {
+    "title": "1984",
+    "date": "1949-06-08",
+    "isbn": "9780451524935",
+    "page_number": 328,
+    "description": "A dystopian novel about surveillance and totalitarianism.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 1,
+    "publication": 1,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-yAZqYjNL-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 2,
+  "fields": {
+    "title": "Animal Farm",
+    "date": "1945-08-17",
+    "isbn": "9780451526342",
+    "page_number": 112,
+    "description": "A political allegory about a farm ruled by animals.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 1,
+    "publication": 1,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-ZGkrK0Rn-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 3,
+  "fields": {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "date": "1997-06-26",
+    "isbn": "9780747532699",
+    "page_number": 223,
+    "description": "A young wizard begins his magical journey.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 2,
+    "publication": 2,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-lyQ5s0xk-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 4,
+  "fields": {
+    "title": "The Hobbit",
+    "date": "1937-09-21",
+    "isbn": "9780618968633",
+    "page_number": 310,
+    "description": "A hobbit embarks on an unexpected adventure.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 3,
+    "publication": 3,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Xi_oqwWN-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 5,
+  "fields": {
+    "title": "Kafka on the Shore",
+    "date": "1813-01-28",
+    "isbn": "9781503290563",
+    "page_number": 279,
+    "description": "A romantic novel about manners and marriage.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 4,
+    "publication": 4,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-3LOej7w6-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 6,
+  "fields": {
+    "title": "Pride and Prejudice",
+    "date": "1813-01-28",
+    "isbn": "9781503290563",
+    "page_number": 279,
+    "description": "A romantic novel about manners and marriage.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 5,
+    "publication": 5,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-M2ZgPadw-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 7,
+  "fields": {
+    "title": "The Great Gatsby",
+    "date": "1925-04-10",
+    "isbn": "9780743273565",
+    "page_number": 180,
+    "description": "A story of wealth and the American dream.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 6,
+    "publication": 6,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-9TPGxGdd-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 8,
+  "fields": {
+    "title": "To Kill a Mockingbird",
+    "date": "1960-07-11",
+    "isbn": "9780061120084",
+    "page_number": 281,
+    "description": "A novel about racial injustice in the Deep South.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 7,
+    "publication": 7,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-iih5a1I--large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 9,
+  "fields": {
+    "title": "Moby-Dick",
+    "date": "1851-10-18",
+    "isbn": "9781503280786",
+    "page_number": 635,
+    "description": "A quest to hunt a legendary white whale.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 8,
+    "publication": 8,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-eILn4iNq-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 10,
+  "fields": {
+    "title": "War and Peace",
+    "date": "1869-01-01",
+    "isbn": "9780199232765",
+    "page_number": 1225,
+    "description": "A historical novel set during the Napoleonic wars.",
+    "language": "Russian",
+    "user": [
+      "admin"
+    ],
+    "author": 9,
+    "publication": 9,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-aluqr5bs-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 11,
+  "fields": {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "date": "1998-07-02",
+    "isbn": "9780747538493",
+    "page_number": 251,
+    "description": "Harry returns to Hogwarts and uncovers a dark mystery within the school.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 2,
+    "publication": 2,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-z42JL_Ds-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 12,
+  "fields": {
+    "title": "Norwegian Wood",
+    "date": "1987-09-04",
+    "isbn": "9780375704024",
+    "page_number": 296,
+    "description": "A nostalgic novel about love, loss, and youth.",
+    "language": "Japanese",
+    "user": [
+      "admin"
+    ],
+    "author": 4,
+    "publication": 4,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-uULmZP8c-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 13,
+  "fields": {
+    "title": "Sense and Sensibility",
+    "date": "1811-10-30",
+    "isbn": "9781503290310",
+    "page_number": 409,
+    "description": "A story of two sisters navigating romance and hardship.",
+    "language": "English",
+    "user": [
+      "admin"
+    ],
+    "author": 5,
+    "publication": 5,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-ET5iNIy_-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.books",
+  "pk": 14,
+  "fields": {
+    "title": "Crime and Punishment",
+    "date": "1866-01-01",
+    "isbn": "9780143058144",
+    "page_number": 671,
+    "description": "A psychological exploration of guilt and redemption.",
+    "language": "Russian",
+    "user": [
+      "admin"
+    ],
+    "author": 10,
+    "publication": 9,
+    "cover_url": "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-zAo40df2-large.jpg"
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "avatar": null,
+    "bio": ""
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "emma_reads"
+    ],
+    "avatar": null,
+    "bio": "Bookworm from Oslo. I read everything from classics to contemporary fiction."
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "jonas_bookclub"
+    ],
+    "avatar": null,
+    "bio": "Sci-fi and philosophy are my thing. Always have 3 books on the go."
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "sofia_pages"
+    ],
+    "avatar": null,
+    "bio": "Literature student. I love Murakami and anything a bit strange."
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "erik_literary"
+    ],
+    "avatar": null,
+    "bio": "History and classic literature. Orwell changed my life."
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "maja_stories"
+    ],
+    "avatar": null,
+    "bio": "I read mostly at night. Huge fan of Jane Austen and anything cozy."
+  }
+},
+{
+  "model": "Leselystapp.userprofile",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "r"
+    ],
+    "avatar": null,
+    "bio": ""
   }
 }
 ]
