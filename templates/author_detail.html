@@ -1,20 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Leselyst - Author Detail</title>
-</head>
-<body>
-    <h1>Books by {{ author_name }}</h1>
-    <ul>
-        {% for book in books %}
-            <li><a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">{{ book.title }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'Leselystapp:author_list' %}">Back to Author List</a>
-    <footer>
-        <p>&copy; 2026 Leselyst. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}{{ author.name }} — Leselyst{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'Leselystapp:author_list' %}" style="font-size: 0.85rem; color: var(--text-light); text-decoration: none;">← Back to authors</a>
+
+<div style="margin-top: 1.5rem; margin-bottom: 2rem;">
+    <h1>{{ author.name }}</h1>
+    {% if author.bio %}
+    <p style="color: var(--text-light); margin-top: 0.75rem; max-width: 600px; line-height: 1.7;">{{ author.bio }}</p>
+    {% endif %}
+</div>
+
+<div class="section-head">
+    <h2>Books</h2>
+</div>
+
+<div class="book-grid">
+    {% for book in books %}
+    <div class="book-card">
+        <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+            <div class="book-cover">
+                {% if book.cover_url %}
+                    <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                {% endif %}
+            </div>
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-author">{{ book.date|date:"Y" }}</div>
+        </a>
+    </div>
+    {% empty %}
+    <p style="color: var(--text-light);">No books found for this author.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

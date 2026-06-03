@@ -1,27 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}{{ book_list.title }} — Leselyst{% endblock %}
+{% block title %}Search results for "{{ query }}" — Leselyst{% endblock %}
 
 {% block content %}
 
-<a href="{% url 'Leselystapp:my_lists' %}" style="font-size: 0.85rem; color: var(--text-light); text-decoration: none;">← Back to my lists</a>
-
-<div style="margin-top: 1.5rem; margin-bottom: 2rem;">
-    <div style="display: flex; align-items: baseline; gap: 1rem;">
-        <h1>{{ book_list.title }}</h1>
-        <span class="badge">{% if book_list.is_public %}Public{% else %}Private{% endif %}</span>
-    </div>
-    {% if book_list.description %}
-    <p style="color: var(--text-light); margin-top: 0.5rem;">{{ book_list.description }}</p>
-    {% endif %}
-</div>
-
-<div class="section-head">
-    <h2>Books</h2>
+<div style="margin-bottom: 1.5rem;">
+    <h1>Search results for "{{ query }}"</h1>
+    <p style="color: var(--text-light); margin-top: 0.25rem;">{{ results.count }} result{{ results.count|pluralize }} found</p>
 </div>
 
 <div class="book-grid">
-    {% for book in book_list.books.all %}
+    {% for book in results %}
     <div class="book-card">
         <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
             <div class="book-cover">
@@ -36,7 +25,7 @@
         </a>
     </div>
     {% empty %}
-    <p style="color: var(--text-light);">No books in this list yet.</p>
+    <p style="color: var(--text-light);">No books found for "{{ query }}".</p>
     {% endfor %}
 </div>
 

@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Leselyst{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --brown: #382110;
-            --brown-mid: #57381a;
-            --brown-light: #766c5b;
-            --cream: #f4f1ea;
-            --cream-dark: #ede6d6;
+            --teal: #2A9D8F;
+            --teal-mid: #21867a;
+            --teal-light: #A8E6CF;
+            --cream: #F0FAFA;
+            --cream-dark: #d8f2ee;
             --white: #ffffff;
-            --green: #409448;
-            --border: #d8d8d8;
-            --text: #181818;
-            --text-light: #767676;
+            --peach: #FFD6A5;
+            --peach-dark: #f0b870;
+            --border: #c8e8e4;
+            --text: #1a2e2c;
+            --text-light: #5a7a76;
+            --font: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: var(--font);
             background: var(--cream);
             color: var(--text);
             font-size: 14px;
@@ -32,8 +33,18 @@
             flex-direction: column;
         }
 
+        h1, h2, h3 {
+            font-family: var(--font);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 1.75rem; }
+        h2 { font-size: 1.2rem; }
+        h3 { font-size: 1rem; }
+
         nav {
-            background: var(--brown);
+            background: var(--teal);
             padding: 0 1.5rem;
             display: flex;
             align-items: center;
@@ -42,13 +53,14 @@
         }
 
         .nav-logo {
-            font-family: 'Lora', serif;
+            font-family: var(--font);
             font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--cream-dark);
+            font-weight: 700;
+            color: white;
             text-decoration: none;
             white-space: nowrap;
             margin-right: 0.5rem;
+            letter-spacing: 0.05em;
         }
 
         .nav-search {
@@ -63,21 +75,24 @@
             border: none;
             border-radius: 3px 0 0 3px;
             font-size: 0.875rem;
-            font-family: inherit;
+            font-family: var(--font);
             outline: none;
+            background: rgba(255,255,255,0.95);
+            color: var(--text);
         }
 
         .nav-search button {
-            background: var(--brown-mid);
-            color: var(--cream-dark);
+            background: var(--teal-mid);
+            color: white;
             border: none;
             padding: 0 0.75rem;
             border-radius: 0 3px 3px 0;
             cursor: pointer;
             font-size: 0.85rem;
+            font-family: var(--font);
         }
 
-        .nav-search button:hover { background: var(--brown-light); }
+        .nav-search button:hover { background: #1a6b5a; }
 
         .nav-links {
             display: flex;
@@ -88,22 +103,42 @@
         }
 
         .nav-links a {
-            color: var(--cream-dark);
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
             font-size: 0.8rem;
-            font-weight: 500;
-            opacity: 0.85;
-            transition: opacity 0.15s;
+            font-weight: 700;
+            transition: color 0.15s;
+            font-family: var(--font);
         }
 
-        .nav-links a:hover { opacity: 1; }
+        .nav-links a:hover { color: white; }
 
         .nav-links .btn-signin {
-            background: var(--brown-mid);
+            background: var(--peach);
+            color: #7a4a00;
             padding: 0.3rem 0.75rem;
-            border-radius: 3px;
-            opacity: 1;
+            border-radius: 20px;
+            font-weight: 700;
         }
+
+        .nav-links .btn-signin:hover { background: var(--peach-dark); color: #5a3000; }
+
+        .signout-form { margin: 0; }
+
+        .signout-btn {
+            background: var(--peach);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font);
+            font-size: 0.8rem;
+            color: #7a4a00;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 700;
+            transition: background 0.15s;
+        }
+
+        .signout-btn:hover { background: var(--peach-dark); }
 
         .page-wrap {
             flex: 1;
@@ -114,23 +149,19 @@
         }
 
         footer {
-            background: var(--brown);
-            color: var(--cream-dark);
+            background: var(--teal);
+            color: rgba(255,255,255,0.85);
             text-align: center;
             padding: 1.25rem;
             font-size: 0.75rem;
+            font-family: var(--font);
         }
 
-        footer a { color: var(--cream-dark); text-decoration: none; margin: 0 0.5rem; opacity: 0.8; }
-        footer a:hover { opacity: 1; }
-
-        h1, h2, h3 { font-family: 'Lora', serif; font-weight: 600; line-height: 1.2; }
-        h1 { font-size: 1.75rem; }
-        h2 { font-size: 1.2rem; }
-        h3 { font-size: 1rem; }
+        footer a { color: rgba(255,255,255,0.85); text-decoration: none; margin: 0 0.5rem; }
+        footer a:hover { color: white; }
 
         .section-head {
-            border-bottom: 2px solid var(--brown);
+            border-bottom: 2px solid var(--teal-light);
             padding-bottom: 0.4rem;
             margin-bottom: 1rem;
             display: flex;
@@ -138,8 +169,15 @@
             justify-content: space-between;
         }
 
-        .section-head h2 { color: var(--brown); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.03em; }
-        .section-head a { font-size: 0.8rem; color: var(--green); text-decoration: none; }
+        .section-head h2 {
+            color: var(--teal);
+            font-size: 1rem;
+            text-transform: none;
+            letter-spacing: 0.01em;
+            font-weight: 700;
+        }
+
+        .section-head a { font-size: 0.8rem; color: var(--teal); text-decoration: none; }
         .section-head a:hover { text-decoration: underline; }
 
         .book-grid {
@@ -155,7 +193,7 @@
             aspect-ratio: 2/3;
             background: var(--cream-dark);
             border: 1px solid var(--border);
-            border-radius: 2px;
+            border-radius: 4px;
             overflow: hidden;
             margin-bottom: 0.4rem;
             display: block;
@@ -163,46 +201,45 @@
 
         .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .book-title { font-size: 0.78rem; font-weight: 600; line-height: 1.3; color: var(--brown); }
+        .book-title { font-size: 0.78rem; font-weight: 700; line-height: 1.3; color: var(--teal); font-family: var(--font); }
         .book-author { font-size: 0.72rem; color: var(--text-light); margin-top: 0.1rem; }
         .book-card a:hover .book-title { text-decoration: underline; }
-
-        .stars { color: #e07b39; font-size: 0.8rem; }
 
         .btn {
             display: inline-block;
             padding: 0.4rem 1rem;
-            border-radius: 3px;
+            border-radius: 20px;
             font-size: 0.825rem;
-            font-weight: 500;
+            font-weight: 700;
             cursor: pointer;
             text-decoration: none;
             border: 1px solid transparent;
             transition: background 0.15s;
-            font-family: inherit;
+            font-family: var(--font);
         }
 
-        .btn-green { background: var(--green); color: var(--white); border-color: #357a3c; }
-        .btn-green:hover { background: #357a3c; }
-        .btn-brown { background: var(--brown); color: var(--white); }
-        .btn-brown:hover { background: var(--brown-mid); }
+        .btn-green { background: var(--teal); color: white; }
+        .btn-green:hover { background: var(--teal-mid); }
+        .btn-brown { background: var(--teal); color: white; }
+        .btn-brown:hover { background: var(--teal-mid); }
         .btn-outline { background: var(--white); color: var(--text); border-color: var(--border); }
-        .btn-outline:hover { background: var(--cream); }
+        .btn-outline:hover { background: var(--cream-dark); }
 
         .badge {
             display: inline-block;
             font-size: 0.7rem;
-            padding: 0.15rem 0.45rem;
-            border-radius: 2px;
-            background: var(--cream-dark);
-            color: var(--text-light);
-            border: 1px solid var(--border);
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            background: var(--teal-light);
+            color: #1a6b5a;
+            font-family: var(--font);
+            font-weight: 700;
         }
 
-        .card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1rem; }
+        .card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
 
         .messages { list-style: none; margin-bottom: 1rem; }
-        .messages li { padding: 0.6rem 1rem; border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.4rem; }
+        .messages li { padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 0.4rem; }
         .messages .success { background: #edf7ed; color: #2d6a2d; }
         .messages .error   { background: #fdecea; color: #b71c1c; }
 
@@ -216,7 +253,7 @@
 <nav>
     <a href="{% url 'Leselystapp:home' %}" class="nav-logo">Leselyst</a>
 
-    <form class="nav-search" method="GET" action="{% url 'Leselystapp:book_list' %}">
+    <form class="nav-search" method="GET" action="{% url 'Leselystapp:search' %}">
         <input type="text" name="q" placeholder="Title / Author / ISBN" value="{{ request.GET.q }}">
         <button type="submit">Search</button>
     </form>
@@ -226,10 +263,14 @@
         <li><a href="{% url 'Leselystapp:author_list' %}">Authors</a></li>
         {% if user.is_authenticated %}
             <li><a href="{% url 'Leselystapp:my_lists' %}">My Lists</a></li>
-            <li><form method="POST" action="{% url 'logout' %}" style="margin: 0;">
-        {% csrf_token %}
-        <button type="submit" class="btn-signin" style="background: none; border: none; cursor: pointer; font-family: inherit; font-size: 0.8rem; color: var(--cream-dark); padding: 0.3rem 0.75rem; background: var(--brown-mid); border-radius: 3px;">Sign out</button>
-    </form></li>
+            <li><a href="{% url 'Leselystapp:profile' username=user.username %}">{{ user.username }}</a></li>
+            <li><a href="{% url 'Leselystapp:account_settings' %}">Settings</a></li>
+            <li>
+                <form class="signout-form" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="signout-btn">Sign out</button>
+                </form>
+            </li>
         {% else %}
             <li><a href="{% url 'login' %}">Sign in</a></li>
             <li><a href="{% url 'Leselystapp:signup' %}" class="btn-signin">Join</a></li>

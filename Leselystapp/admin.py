@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Books, Authors, Publications, Book_genres, Genres, Comments, Reviews, Book_list, Books_in_list, Reading_status, Favourites
-
+from .models import Books, Authors, Publications, Book_genres, Genres, Comments, Reviews, Book_list, Books_in_list, Reading_status, Favourites, ReadingChallenge, UserProfile
+admin.site.register(UserProfile)
 admin.site.register(Books)
 admin.site.register(Authors)
 admin.site.register(Publications)
@@ -12,4 +12,5 @@ admin.site.register(Book_list)
 admin.site.register(Books_in_list)
 admin.site.register(Reading_status)
 admin.site.register(Favourites)
+admin.site.register(ReadingChallenge)
     

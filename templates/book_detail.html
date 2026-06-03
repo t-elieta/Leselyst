@@ -1,38 +1,143 @@
 {% extends "base.html" %}
 
-{% block title %} {{ book.title }} — Leselyst{% endblock %}
+{% block title %}{{ book.title }} — Leselyst{% endblock %}
 
 {% block content %}
 
-<div style="max-width: 400px; margin: 3rem auto;">
-    <h1> {{ book.title }} </h1>
-    <p style="margin-bottom: 1.00rem;" /p>
-    <p style="color: var(--ink-light);"> {{ book.author }} </p>
-    <p> {{ book.description }} </p>
+<a href="{% url 'Leselystapp:book_list' %}" style="font-size: 0.85rem; color: var(--text-light); text-decoration: none;">← Back to books</a>
 
-    <hr style="margin: 2rem 0;">
+<div style="display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; margin-top: 1.5rem;">
 
-    <h2>Reviews:</h2>
-    {% for review in reviews %}
-        <div style="padding: 1rem 0; border-bottom: 1px solid #ffffff;">
-            <p> {{ review.content }} </p>
+    <div>
+        <div class="book-cover" style="width: 200px;">
+            {% if book.cover_url %}
+                <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+            {% else %}
+                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+            {% endif %}
         </div>
 
-    {% empty %}
-        <h3>There are no reviews for this book yet, create the first one!</h3>
-        <form method="POST" action="{% url "Leselystapp:add_review" book.id %}">
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'Leselystapp:set_reading_status' book_id=book.id %}" style="margin-top: 1rem;">
             {% csrf_token %}
-            <textarea name="content" rows="4"
-                style="width: 100%; padding: 0.50rem; border: 1px solid #ffffff"; border-radius: 4px; font-size: 1rem; margin-bottom: 1rem;">
-            </textarea>
-            <button type="submit"
-                style="background: var(--ink); color: brown; padding: 0.5rem 1.5rem; border: 2px solid #000000; border-radius: 4px; cursor: pointer; font-size: 1rem;">
-                Submit review
+            <select name="status" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.5rem; font-family: inherit;">
+                <option value="not started" {% if reading_status.status == "not started" %}selected{% endif %}>Not started</option>
+                <option value="reading" {% if reading_status.status == "reading" %}selected{% endif %}>Reading</option>
+                <option value="finished" {% if reading_status.status == "finished" %}selected{% endif %}>Finished</option>
+            </select>
+            <button type="submit" class="btn btn-outline" style="width: 100%;">Update status</button>
+        </form>
+
+        <form method="POST" action="{% url 'Leselystapp:toggle_favourite' book_id=book.id %}" style="margin-top: 0.5rem;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline" style="width: 100%;">
+                {% if is_favourite %}♥ Unfavourite{% else %}♡ Favourite{% endif %}
             </button>
         </form>
 
-    {% endfor %}
+        {% if lists %}
+        <form method="POST" action="{% url 'Leselystapp:add_to_list' book_id=book.id %}" style="margin-top: 0.5rem;">
+            {% csrf_token %}
+            <select name="list_id" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.5rem; font-family: inherit;">
+                {% for list in lists %}
+                <option value="{{ list.id }}">{{ list.title }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-outline" style="width: 100%;">+ Add to list</button>
+        </form>
+        {% else %}
+        <a href="{% url 'Leselystapp:create_list' %}" class="btn btn-outline" style="width: 100%; margin-top: 0.5rem; display: block; text-align: center;">+ Create a list</a>
+        {% endif %}
 
+        {% endif %}
+    </div>
+
+    <div>
+        <h1 style="margin-bottom: 0.25rem;">{{ book.title }}</h1>
+
+        <p style="margin-bottom: 0.5rem;">
+            by <a href="{% url 'Leselystapp:author_detail' author_id=book.author.id %}" style="color: var(--brown); text-decoration: none; font-weight: 500;">{{ book.author.name }}</a>
+        </p>
+
+        {% if book.publication %}
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem;">
+            Published by {{ book.publication.name }}
+        </p>
+        {% endif %}
+
+        <div style="margin-bottom: 1rem;">
+            {% if book.date %}<span class="badge">{{ book.date|date:"Y" }}</span>{% endif %}
+            {% if book.language %}<span class="badge">{{ book.language }}</span>{% endif %}
+            {% if book.page_number %}<span class="badge">{{ book.page_number }} pages</span>{% endif %}
+        </div>
+
+        <p style="color: var(--text-light); line-height: 1.8; max-width: 600px;">{{ book.description }}</p>
+
+        <hr>
+
+        <h2 style="margin-bottom: 1rem;">Reviews</h2>
+
+        {% if user.is_authenticated %}
+        <div class="card" style="margin-bottom: 1.5rem;">
+            <h3 style="margin-bottom: 0.75rem;">Write a review</h3>
+            <form method="POST" action="{% url 'Leselystapp:add_review' book_id=book.id %}">
+                {% csrf_token %}
+                <div style="margin-bottom: 0.75rem;">
+                    <label style="font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Rating (1–5)</label>
+                    <input type="number" name="rating" min="1" max="5" style="width: 80px; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px;">
+                </div>
+                <div style="margin-bottom: 0.75rem;">
+                    <label style="font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Review</label>
+                    <textarea name="description" rows="3" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 3px; font-family: inherit; font-size: 0.875rem;"></textarea>
+                </div>
+                <label style="font-size: 0.85rem;">
+                    <input type="checkbox" name="spoilers"> Contains spoilers
+                </label>
+                <div style="margin-top: 0.75rem;">
+                    <button type="submit" class="btn btn-green">Submit review</button>
+                </div>
+            </form>
+        </div>
+        {% else %}
+        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            <a href="{% url 'login' %}" style="color: var(--brown);">Sign in</a> to write a review.
+        </p>
+        {% endif %}
+
+        {% for review in reviews %}
+        <div class="card" style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                <a href="{% url 'Leselystapp:profile' username=review.user.username %}" style="text-decoration: none;"><strong style="font-size: 0.9rem; color: var(--teal);">{{ review.user.username }}</strong></a>
+                <span style="font-size: 0.8rem; color: var(--text-light);">{{ review.datetime|date:"d M Y" }}</span>
+            </div>
+            <div style="margin-bottom: 0.5rem; color: #e07b39;">
+                {% for i in "12345" %}{% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}{% endfor %}
+            </div>
+            {% if review.spoilers %}
+                <span class="badge" style="margin-bottom: 0.5rem;">Spoilers</span>
+            {% endif %}
+            <p style="font-size: 0.875rem; color: var(--text-light);">{{ review.description }}</p>
+
+            {% for comment in review.comments.all %}
+            <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
+                <a href="{% url 'Leselystapp:profile' username=comment.user.username %}" style="text-decoration: none;"><strong style="font-size: 0.8rem; color: var(--teal);">{{ comment.user.username }}</strong></a>
+                <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.2rem;">{{ comment.comment }}</p>
+            </div>
+            {% endfor %}
+
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'Leselystapp:add_comment' review_id=review.id %}" style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+                {% csrf_token %}
+                <input type="text" name="comment" placeholder="Add a comment…" style="flex: 1; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; font-family: inherit;">
+                <button type="submit" class="btn btn-outline" style="font-size: 0.8rem;">Post</button>
+            </form>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p style="color: var(--text-light); font-size: 0.9rem;">No reviews yet — be the first!</p>
+        {% endfor %}
+
+    </div>
 </div>
 
 {% endblock %}

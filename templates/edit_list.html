@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ book_list.title }} — Leselyst{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'Leselystapp:my_lists' %}" style="font-size: 0.85rem; color: var(--text-light); text-decoration: none;">← Back to my lists</a>
+
+<h1 style="margin: 1rem 0;">Edit list</h1>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+
+    <div class="card">
+        <form method="POST">
+            {% csrf_token %}
+            <div style="margin-bottom: 1rem;">
+                <label style="font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 0.25rem;">Title</label>
+                <input type="text" name="title" value="{{ book_list.title }}" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.9rem; font-family: inherit;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label style="font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 0.25rem;">Description</label>
+                <textarea name="description" rows="3" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.9rem; font-family: inherit;">{{ book_list.description }}</textarea>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="font-size: 0.85rem;">
+                    <input type="checkbox" name="is_public" {% if book_list.is_public %}checked{% endif %}> Make this list public
+                </label>
+            </div>
+
+            <h3 style="margin-bottom: 0.75rem;">Books in this list</h3>
+            <div style="max-height: 400px; overflow-y: auto; border: 1px solid var(--border); border-radius: 3px; padding: 0.5rem;">
+                {% for book in all_books %}
+                <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.5rem; font-size: 0.85rem; cursor: pointer; border-radius: 3px;">
+                    <input type="checkbox" name="books" value="{{ book.id }}"
+                        {% if book in book_list.books.all %}checked{% endif %}>
+                    <span>{{ book.title }}</span>
+                    <span style="color: var(--text-light); font-size: 0.75rem;">— {{ book.author.name }}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
+                <button type="submit" class="btn btn-green">Save changes</button>
+                <a href="{% url 'Leselystapp:my_lists' %}" class="btn btn-outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div class="section-head"><h2>Current books</h2></div>
+        <div class="book-grid">
+            {% for book in book_list.books.all %}
+            <div class="book-card">
+                <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+                    <div class="book-cover">
+                        {% if book.cover_url %}
+                            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                        {% else %}
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="book-title">{{ book.title }}</div>
+                    <div class="book-author">{{ book.author.name }}</div>
+                </a>
+            </div>
+            {% empty %}
+            <p style="color: var(--text-light); font-size: 0.85rem;">No books yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

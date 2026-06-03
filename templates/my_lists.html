@@ -1,20 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Leselyst - My Lists</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}My Lists — Leselyst{% endblock %}
+
+{% block content %}
+
+<div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.5rem;">
     <h1>My Lists</h1>
-    <ul>
-        {% for book_list in book_lists %}
-            <li><a href="{% url 'Leselystapp:list_detail' list_id=book_list.id %}">{{ book_list.name }}</a></li>
+    <a href="{% url 'Leselystapp:create_list' %}" class="btn btn-green">+ Create list</a>
+</div>
+
+{% if reading %}
+<div class="section-head" style="margin-top: 1.5rem;">
+    <h2>Currently Reading</h2>
+</div>
+<div class="book-grid" style="margin-bottom: 2rem;">
+    {% for status in reading %}
+    <div class="book-card">
+        <a href="{% url 'Leselystapp:book_detail' book_id=status.book.id %}">
+            <div class="book-cover">
+                {% if status.book.cover_url %}
+                    <img src="{{ status.book.cover_url }}" alt="{{ status.book.title }}">
+                {% else %}
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ status.book.title }}</div>
+                {% endif %}
+            </div>
+            <div class="book-title">{{ status.book.title }}</div>
+            <div class="book-author">{{ status.book.author.name }}</div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if finished %}
+<div class="section-head">
+    <h2>Finished</h2>
+</div>
+<div class="book-grid" style="margin-bottom: 2rem;">
+    {% for status in finished %}
+    <div class="book-card">
+        <a href="{% url 'Leselystapp:book_detail' book_id=status.book.id %}">
+            <div class="book-cover">
+                {% if status.book.cover_url %}
+                    <img src="{{ status.book.cover_url }}" alt="{{ status.book.title }}">
+                {% else %}
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ status.book.title }}</div>
+                {% endif %}
+            </div>
+            <div class="book-title">{{ status.book.title }}</div>
+            <div class="book-author">{{ status.book.author.name }}</div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if favourites %}
+<div class="section-head">
+    <h2>Favourites</h2>
+</div>
+<div class="book-grid" style="margin-bottom: 2rem;">
+    {% for fav in favourites %}
+    <div class="book-card">
+        <a href="{% url 'Leselystapp:book_detail' book_id=fav.book.id %}">
+            <div class="book-cover">
+                {% if fav.book.cover_url %}
+                    <img src="{{ fav.book.cover_url }}" alt="{{ fav.book.title }}">
+                {% else %}
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ fav.book.title }}</div>
+                {% endif %}
+            </div>
+            <div class="book-title">{{ fav.book.title }}</div>
+            <div class="book-author">{{ fav.book.author.name }}</div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="section-head">
+    <h2>My Custom Lists</h2>
+</div>
+
+{% for list in lists %}
+<div style="margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <h3 style="color: var(--brown);">{{ list.title }}</h3>
+            <span class="badge">{% if list.is_public %}Public{% else %}Private{% endif %}</span>
+        </div>
+        <a href="{% url 'Leselystapp:edit_list' list_id=list.id %}" class="btn btn-outline" style="font-size: 0.8rem;">Edit</a>
+    </div>
+    {% if list.description %}
+    <p style="color: var(--text-light); font-size: 0.85rem; margin-bottom: 0.75rem;">{{ list.description }}</p>
+    {% endif %}
+    <div class="book-grid">
+        {% for book in list.books.all %}
+        <div class="book-card">
+            <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+                <div class="book-cover">
+                    {% if book.cover_url %}
+                        <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                    {% else %}
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+                    {% endif %}
+                </div>
+                <div class="book-title">{{ book.title }}</div>
+                <div class="book-author">{{ book.author.name }}</div>
+            </a>
+        </div>
+        {% empty %}
+        <p style="color: var(--text-light); font-size: 0.85rem;">No books in this list yet.</p>
         {% endfor %}
-    </ul>
-    <a href="{% url 'Leselystapp:home' %}">Back to Home</a>
-    <footer>
-        <p>&copy; 2026 Leselyst. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    </div>
+</div>
+{% empty %}
+<div style="text-align: center; padding: 2rem 0; color: var(--text-light);">
+    <p style="margin-bottom: 1rem;">You haven't created any custom lists yet.</p>
+    <a href="{% url 'Leselystapp:create_list' %}" class="btn btn-green">Create your first list</a>
+</div>
+{% endfor %}
+
+{% endblock %}

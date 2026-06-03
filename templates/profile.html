@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile_user.username }}'s Profile — Leselyst{% endblock %}
+
+{% block extra_styles %}
+.profile-header {
+    background: linear-gradient(135deg, #2A9D8F 0%, #1a6b5a 100%);
+    color: white;
+    margin: -1.5rem -1rem 2rem;
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--peach);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #7a4a00;
+    flex-shrink: 0;
+    font-family: var(--font);
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.3);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--teal);
+    font-family: var(--font);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.2rem;
+    font-weight: 700;
+}
+
+.progress-wrap {
+    background: var(--cream-dark);
+    border-radius: 20px;
+    height: 14px;
+    overflow: hidden;
+    margin: 0.75rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 100%);
+    border-radius: 20px;
+}
+
+.milestone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 0.25rem;
+}
+
+.milestone.earned { background: var(--peach); color: #7a4a00; }
+.milestone.unearned { background: var(--cream-dark); color: var(--text-light); }
+
+.section-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-block .section-head {
+    border-bottom: 2px solid var(--cream);
+    margin-bottom: 1.25rem;
+}
+
+.section-block .section-head h2 {
+    text-transform: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--teal);
+}
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-header">
+    <div class="avatar">
+        {% if user_profile.avatar %}
+            <img src="{{ user_profile.avatar }}" alt="{{ profile_user.username }}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        {% else %}
+            {{ profile_user.username|first|upper }}
+        {% endif %}
+    </div>
+    <div>
+        <h1 style="color: white; font-size: 1.5rem;">{{ profile_user.username }}</h1>
+        {% if user_profile.bio %}
+        <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 0.25rem;">{{ user_profile.bio }}</p>
+        {% endif %}
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.78rem; margin-top: 0.25rem;">Member since {{ profile_user.date_joined|date:"F Y" }}</p>
+        {% if user == profile_user %}
+        <a href="{% url 'Leselystapp:account_settings' %}" style="display: inline-block; margin-top: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.8); text-decoration: none; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 20px;">Edit profile</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Stats -->
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="stat-number">{{ total_read }}</div>
+        <div class="stat-label">Books read</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ reading_now }}</div>
+        <div class="stat-label">Reading now</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ total_reviews }}</div>
+        <div class="stat-label">Reviews written</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ total_favourites }}</div>
+        <div class="stat-label">Favourites</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ read_this_month }}</div>
+        <div class="stat-label">Read this month</div>
+    </div>
+</div>
+
+<!-- Reading Challenge -->
+<div class="section-block">
+    <div class="section-head" style="display: flex; justify-content: space-between; align-items: baseline;">
+        <h2>{{ year }} reading challenge</h2>
+        {% if user == profile_user %}
+        <a href="{% url 'Leselystapp:set_challenge' %}" style="font-size: 0.8rem; color: var(--teal); text-decoration: none; font-weight: 700;">
+            {% if challenge %}Edit goal{% else %}Set a goal{% endif %}
+        </a>
+        {% endif %}
+    </div>
+
+    {% if challenge %}
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+        <span style="font-size: 0.9rem; font-weight: 700; color: var(--text);">{{ total_read }} of {{ challenge.goal }} books</span>
+        <span style="font-size: 0.85rem; color: var(--text-light);">{{ progress_pct }}%</span>
+    </div>
+    <div class="progress-wrap">
+        <div class="progress-bar" style="width: {{ progress_pct }}%;"></div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+        <span style="font-size: 0.78rem; color: var(--text-light);" id="countdown"></span>
+        <span style="font-size: 0.78rem; color: var(--teal); font-weight: 700;">{{ challenge.goal|add:"0" }} books goal</span>
+    </div>
+    {% if challenge.end_date %}
+    <script>
+    const endDate = new Date("{{ challenge.end_date|date:'Y-m-d' }}");
+    const today = new Date();
+    const diff = Math.max(0, Math.ceil((endDate - today) / (1000*60*60*24)));
+    document.getElementById('countdown').textContent = diff === 0 ? 'Challenge ends today!' : diff + ' days remaining';
+    </script>
+    {% endif %}
+    <div style="margin-top: 1rem;">
+        <span class="milestone {% if progress_pct >= 25 %}earned{% else %}unearned{% endif %}">25% ✓</span>
+        <span class="milestone {% if progress_pct >= 50 %}earned{% else %}unearned{% endif %}">Halfway ✓</span>
+        <span class="milestone {% if progress_pct >= 75 %}earned{% else %}unearned{% endif %}">75% ✓</span>
+        <span class="milestone {% if progress_pct >= 100 %}earned{% else %}unearned{% endif %}">Goal reached ✓</span>
+    </div>
+    {% else %}
+    <p style="color: var(--text-light); font-size: 0.9rem;">
+        {% if user == profile_user %}
+        No reading goal set for {{ year }} yet. <a href="{% url 'Leselystapp:set_challenge' %}" style="color: var(--teal); font-weight: 700;">Set one now</a>
+        {% else %}
+        No reading goal set for {{ year }}.
+        {% endif %}
+    </p>
+    {% endif %}
+</div>
+
+<!-- Currently reading -->
+{% if currently_reading %}
+<div class="section-block">
+    <div class="section-head"><h2>Currently reading</h2></div>
+    <div class="book-grid">
+        {% for status in currently_reading %}
+        <div class="book-card">
+            <a href="{% url 'Leselystapp:book_detail' book_id=status.book.id %}">
+                <div class="book-cover">
+                    {% if status.book.cover_url %}
+                        <img src="{{ status.book.cover_url }}" alt="{{ status.book.title }}">
+                    {% else %}
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ status.book.title }}</div>
+                    {% endif %}
+                </div>
+                <div class="book-title">{{ status.book.title }}</div>
+                <div class="book-author">{{ status.book.author.name }}</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Recently finished -->
+{% if recently_finished %}
+<div class="section-block">
+    <div class="section-head"><h2>Recently finished</h2></div>
+    <div class="book-grid">
+        {% for status in recently_finished %}
+        <div class="book-card">
+            <a href="{% url 'Leselystapp:book_detail' book_id=status.book.id %}">
+                <div class="book-cover">
+                    {% if status.book.cover_url %}
+                        <img src="{{ status.book.cover_url }}" alt="{{ status.book.title }}">
+                    {% else %}
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ status.book.title }}</div>
+                    {% endif %}
+                </div>
+                <div class="book-title">{{ status.book.title }}</div>
+                <div class="book-author">{{ status.book.author.name }}</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Public lists -->
+{% if public_lists %}
+<div class="section-block">
+    <div class="section-head"><h2>Public lists</h2></div>
+    {% for list in public_lists %}
+    <div style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem;">
+            <a href="{% url 'Leselystapp:list_detail' list_id=list.id %}" style="text-decoration: none;">
+                <h3 style="color: var(--teal);">{{ list.title }}</h3>
+            </a>
+            <span style="font-size: 0.78rem; color: var(--text-light);">{{ list.books.count }} book{{ list.books.count|pluralize }}</span>
+        </div>
+        {% if list.description %}
+        <p style="font-size: 0.82rem; color: var(--text-light); margin-bottom: 0.75rem;">{{ list.description }}</p>
+        {% endif %}
+        <div class="book-grid">
+            {% for book in list.books.all|slice:":6" %}
+            <div class="book-card">
+                <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+                    <div class="book-cover">
+                        {% if book.cover_url %}
+                            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                        {% else %}
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="book-title">{{ book.title }}</div>
+                    <div class="book-author">{{ book.author.name }}</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,64 +1,207 @@
 {% extends "base.html" %}
- 
+
 {% block title %}Leselyst — Discover your next read{% endblock %}
- 
+
 {% block extra_styles %}
 .hero {
-    background: var(--brown);
-    color: var(--cream-dark);
-    margin: -1.5rem -1rem 1.5rem;
-    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #2A9D8F 0%, #1a6b5a 100%);
+    color: white;
+    margin: -1.5rem -1rem 2.5rem;
+    padding: 4rem 2rem;
     text-align: center;
 }
- 
+
 .hero h1 {
-    font-size: 2.2rem;
-    color: var(--cream-dark);
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
 }
- 
+
 .hero p {
-    opacity: 0.8;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    color: #d8f5ef;
 }
- 
+
 .hero-actions { display: flex; gap: 0.75rem; justify-content: center; }
+
+.section-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-block .section-head {
+    border-bottom: 2px solid var(--cream);
+    margin-bottom: 1.25rem;
+}
+
+.section-block .section-head h2 {
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--teal);
+}
+
+.public-list-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.public-list-item:last-child { border-bottom: none; }
+
+.public-list-covers {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.mini-cover {
+    width: 36px;
+    height: 54px;
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.mini-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 {% endblock %}
- 
+
 {% block content %}
- 
+
 {% if not user.is_authenticated %}
 <div class="hero">
     <h1>Discover & read more</h1>
-    <p>Find and track books you love</p>
+    <p>Find and track books you love. Share recommendations with friends.</p>
     <div class="hero-actions">
-        <a href="{% url 'Leselystapp:signup' %}" class="btn btn-green">Sign up for free</a>
-        <a href="{% url 'login' %}" class="btn btn-outline">Sign in</a>
+        <a href="{% url 'Leselystapp:signup' %}" class="btn" style="background: var(--peach); color: #7a4a00; font-weight: 700;">Sign up for free</a>
+        <a href="{% url 'login' %}" class="btn" style="background: white; color: var(--teal); font-weight: 700;">Sign in</a>
     </div>
 </div>
 {% endif %}
-<div class="section-head">
-    <h2>Recently Added</h2>
-    <a href="{% url 'Leselystapp:book_list' %}">More &rsaquo;</a>
-</div>
- 
-<div class="book-grid">
-    {% for book in Books %}
-    <div class="book-card">
-        <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
-            <div class="book-cover">
-                {% if book.cover_url %}
-                    <img src="{{ book.cover_url }}" alt="{{ book.title }}">
-                {% endif %}
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+
+    <div class="section-block">
+        <div class="section-head">
+            <h2>Trending</h2>
+        </div>
+        <div class="book-grid">
+            {% for book in trending %}
+            <div class="book-card">
+                <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+                    <div class="book-cover">
+                        {% if book.cover_url %}
+                            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                        {% else %}
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="book-title">{{ book.title }}</div>
+                    <div class="book-author" style="color: #e07b39;">♥ {{ book.fav_count }}</div>
+                </a>
             </div>
-            <div class="book-title">{{ book.title }}</div>
-            <div class="book-author">{{ book.author.name }}</div>
-        </a>
+            {% empty %}
+            <p style="color: var(--text-light); font-size: 0.85rem;">No data yet.</p>
+            {% endfor %}
+        </div>
     </div>
-    {% empty %}
-    <p style="color: var(--text-light);">No books yet.</p>
+
+    <div class="section-block">
+        <div class="section-head">
+            <h2>Reading now</h2>
+        </div>
+        <div class="book-grid">
+            {% for book in reading_now %}
+            <div class="book-card">
+                <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+                    <div class="book-cover">
+                        {% if book.cover_url %}
+                            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                        {% else %}
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="book-title">{{ book.title }}</div>
+                    <div class="book-author" style="color: var(--teal);">{{ book.reading_count }} reading</div>
+                </a>
+            </div>
+            {% empty %}
+            <p style="color: var(--text-light); font-size: 0.85rem;">No data yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+<div class="section-block">
+    <div class="section-head" style="display: flex; justify-content: space-between; align-items: baseline;">
+        <h2>Recently added</h2>
+        <a href="{% url 'Leselystapp:book_list' %}" style="font-size: 0.8rem; color: var(--teal); text-decoration: none; font-weight: 700;">Browse all &rsaquo;</a>
+    </div>
+    <div class="book-grid">
+        {% for book in books %}
+        <div class="book-card">
+            <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
+                <div class="book-cover">
+                    {% if book.cover_url %}
+                        <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                    {% else %}
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
+                    {% endif %}
+                </div>
+                <div class="book-title">{{ book.title }}</div>
+                <div class="book-author">{{ book.author.name }}</div>
+            </a>
+        </div>
+        {% empty %}
+        <p style="color: var(--text-light);">No books yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% if public_lists %}
+<div class="section-block">
+    <div class="section-head">
+        <h2>Community lists</h2>
+    </div>
+    {% for list in public_lists %}
+    <div class="public-list-item">
+        <div class="public-list-covers">
+            {% for book in list.books.all|slice:":4" %}
+            <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}" class="mini-cover">
+                {% if book.cover_url %}<img src="{{ book.cover_url }}" alt="{{ book.title }}">{% endif %}
+            </a>
+            {% endfor %}
+        </div>
+        <div style="flex: 1; min-width: 0;">
+            <a href="{% url 'Leselystapp:list_detail' list_id=list.id %}" style="text-decoration: none;">
+                <div style="font-family: var(--font); font-weight: 700; font-size: 0.95rem; color: var(--teal);">{{ list.title }}</div>
+            </a>
+            <div style="font-size: 0.78rem; color: var(--text-light); margin-top: 0.15rem;">
+                by <a href="{% url 'Leselystapp:profile' username=list.user.username %}" style="color: var(--teal); text-decoration: none; font-weight: 700;">{{ list.user.username }}</a> · {{ list.books.count }} book{{ list.books.count|pluralize }}
+            </div>
+            {% if list.description %}
+            <div style="font-size: 0.82rem; color: var(--text-light); margin-top: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ list.description }}</div>
+            {% endif %}
+        </div>
+    </div>
     {% endfor %}
 </div>
- 
+{% endif %}
+
 {% endblock %}

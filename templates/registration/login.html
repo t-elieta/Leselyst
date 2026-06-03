@@ -6,35 +6,30 @@
 
 <div style="max-width: 400px; margin: 3rem auto;">
     <h1 style="margin-bottom: 0.25rem;">Log in to your account</h1>
-    <p style="color: var(--ink-light); margin-bottom: 2rem; font-size: 0.9rem;">
-        Don't have an account yet? <a href="{% url 'Leselystapp:signup' %}" style="color: var(--ink);">Sign up</a>
+    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 0.9rem;">
+        Don't have an account yet? <a href="{% url 'Leselystapp:signup' %}" style="color: var(--brown);">Sign up</a>
     </p>
 
     <div class="card">
         <form method="POST">
             {% csrf_token %}
             {% if form.errors %}
-                <div style="color: var(--accent); font-size: 0.85rem; margin-bottom: 1rem;">
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    {% endfor %}
+                <div style="color: #b71c1c; font-size: 0.85rem; margin-bottom: 1rem;">
+                    <p>Invalid username or password.</p>
                 </div>
             {% endif %}
 
             <div style="margin-bottom: 1rem;">
                 <label style="font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 0.25rem;">Username</label>
-                <input type="text" name="username" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; font-family: inherit;">
+                <input type="text" name="username" autofocus style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; font-family: inherit;">
             </div>
 
-            <div style="margin-bottom: 1rem;">
+            <div style="margin-bottom: 1.5rem;">
                 <label style="font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 0.25rem;">Password</label>
-                <input type="password" name="password1" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; font-family: inherit;">
+                <input type="password" name="password" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; font-family: inherit;">
             </div>
 
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Log in</button>
+            <button type="submit" class="btn btn-green" style="width: 100%;">Log in</button>
         </form>
     </div>
 </div>
