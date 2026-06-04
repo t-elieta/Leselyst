@@ -22,12 +22,22 @@ def home(request):
 
 
 def book_list(request):
+    from .models import Genres
     valid_sorts = ['-date', 'date', 'title', '-title', 'author__name']
     sort = request.GET.get("sort", "-date")
     if sort not in valid_sorts:
         sort = "-date"
+    genre_id = request.GET.get("genre")
     books = Books.objects.all().order_by(sort)
-    return render(request, "book_list.html", {"books": books, "sort": sort})
+    if genre_id:
+        books = books.filter(book_genres__genre_id=genre_id)
+    genres = Genres.objects.all().order_by("name")
+    return render(request, "book_list.html", {
+        "books": books,
+        "sort": sort,
+        "genres": genres,
+        "selected_genre": genre_id,
+    })
 
 
 def book_detail(request, book_id):

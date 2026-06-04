@@ -20,7 +20,7 @@
         {% if user.is_authenticated %}
         <form method="POST" action="{% url 'Leselystapp:set_reading_status' book_id=book.id %}" style="margin-top: 1rem;">
             {% csrf_token %}
-            <select name="status" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.5rem; font-family: inherit;">
+            <select name="status" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.5rem; font-family: var(--font);">
                 <option value="not started" {% if reading_status.status == "not started" %}selected{% endif %}>Not started</option>
                 <option value="reading" {% if reading_status.status == "reading" %}selected{% endif %}>Reading</option>
                 <option value="finished" {% if reading_status.status == "finished" %}selected{% endif %}>Finished</option>
@@ -38,7 +38,7 @@
         {% if lists %}
         <form method="POST" action="{% url 'Leselystapp:add_to_list' book_id=book.id %}" style="margin-top: 0.5rem;">
             {% csrf_token %}
-            <select name="list_id" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.5rem; font-family: inherit;">
+            <select name="list_id" style="width: 100%; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; margin-bottom: 0.5rem; font-family: var(--font);">
                 {% for list in lists %}
                 <option value="{{ list.id }}">{{ list.title }}</option>
                 {% endfor %}
@@ -48,7 +48,22 @@
         {% else %}
         <a href="{% url 'Leselystapp:create_list' %}" class="btn btn-outline" style="width: 100%; margin-top: 0.5rem; display: block; text-align: center;">+ Create a list</a>
         {% endif %}
+        {% endif %}
 
+        <!-- Buy links -->
+        {% if book.buy_url_norli or book.buy_url_ark or book.buy_url_amazon %}
+        <div style="margin-top: 1.25rem;">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Buy this book</div>
+            {% if book.buy_url_norli %}
+            <a href="{{ book.buy_url_norli }}" target="_blank" class="btn btn-outline" style="width: 100%; margin-bottom: 0.4rem; display: block; text-align: center; font-size: 0.8rem;">Norli</a>
+            {% endif %}
+            {% if book.buy_url_ark %}
+            <a href="{{ book.buy_url_ark }}" target="_blank" class="btn btn-outline" style="width: 100%; margin-bottom: 0.4rem; display: block; text-align: center; font-size: 0.8rem;">Ark</a>
+            {% endif %}
+            {% if book.buy_url_amazon %}
+            <a href="{{ book.buy_url_amazon }}" target="_blank" class="btn btn-outline" style="width: 100%; display: block; text-align: center; font-size: 0.8rem;">Amazon</a>
+            {% endif %}
+        </div>
         {% endif %}
     </div>
 
@@ -56,7 +71,7 @@
         <h1 style="margin-bottom: 0.25rem;">{{ book.title }}</h1>
 
         <p style="margin-bottom: 0.5rem;">
-            by <a href="{% url 'Leselystapp:author_detail' author_id=book.author.id %}" style="color: var(--brown); text-decoration: none; font-weight: 500;">{{ book.author.name }}</a>
+            by <a href="{% url 'Leselystapp:author_detail' author_id=book.author.id %}" style="color: var(--teal); text-decoration: none; font-weight: 700;">{{ book.author.name }}</a>
         </p>
 
         {% if book.publication %}
@@ -65,11 +80,22 @@
         </p>
         {% endif %}
 
-        <div style="margin-bottom: 1rem;">
+        <div style="margin-bottom: 0.75rem;">
             {% if book.date %}<span class="badge">{{ book.date|date:"Y" }}</span>{% endif %}
             {% if book.language %}<span class="badge">{{ book.language }}</span>{% endif %}
             {% if book.page_number %}<span class="badge">{{ book.page_number }} pages</span>{% endif %}
         </div>
+
+        <!-- Genres -->
+        {% with genres=book.book_genres_set.all %}
+        {% if genres %}
+        <div style="margin-bottom: 1rem;">
+            {% for bg in genres %}
+            <a href="{% url 'Leselystapp:book_list' %}?genre={{ bg.genre.id }}" style="display: inline-block; background: var(--teal-light); color: #1a6b5a; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; text-decoration: none; margin: 0.15rem;">{{ bg.genre.name }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
 
         <p style="color: var(--text-light); line-height: 1.8; max-width: 600px;">{{ book.description }}</p>
 
@@ -83,12 +109,12 @@
             <form method="POST" action="{% url 'Leselystapp:add_review' book_id=book.id %}">
                 {% csrf_token %}
                 <div style="margin-bottom: 0.75rem;">
-                    <label style="font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Rating (1–5)</label>
+                    <label style="font-size: 0.85rem; display: block; margin-bottom: 0.25rem; font-weight: 700;">Rating (1–5)</label>
                     <input type="number" name="rating" min="1" max="5" style="width: 80px; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px;">
                 </div>
                 <div style="margin-bottom: 0.75rem;">
-                    <label style="font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Review</label>
-                    <textarea name="description" rows="3" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 3px; font-family: inherit; font-size: 0.875rem;"></textarea>
+                    <label style="font-size: 0.85rem; display: block; margin-bottom: 0.25rem; font-weight: 700;">Review</label>
+                    <textarea name="description" rows="3" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 3px; font-family: var(--font); font-size: 0.875rem;"></textarea>
                 </div>
                 <label style="font-size: 0.85rem;">
                     <input type="checkbox" name="spoilers"> Contains spoilers
@@ -100,7 +126,7 @@
         </div>
         {% else %}
         <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">
-            <a href="{% url 'login' %}" style="color: var(--brown);">Sign in</a> to write a review.
+            <a href="{% url 'login' %}" style="color: var(--teal); font-weight: 700;">Sign in</a> to write a review.
         </p>
         {% endif %}
 
@@ -128,7 +154,7 @@
             {% if user.is_authenticated %}
             <form method="POST" action="{% url 'Leselystapp:add_comment' review_id=review.id %}" style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
                 {% csrf_token %}
-                <input type="text" name="comment" placeholder="Add a comment…" style="flex: 1; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; font-family: inherit;">
+                <input type="text" name="comment" placeholder="Add a comment…" style="flex: 1; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 3px; font-size: 0.85rem; font-family: var(--font);">
                 <button type="submit" class="btn btn-outline" style="font-size: 0.8rem;">Post</button>
             </form>
             {% endif %}

@@ -23,6 +23,9 @@ class Books(models.Model):
     author = models.ForeignKey("Authors", on_delete=models.CASCADE, related_name='books')
     publication = models.ForeignKey("Publications", on_delete=models.CASCADE)
     cover_url = models.URLField(null=True, blank=True)
+    buy_url_norli = models.URLField(null=True, blank=True)
+    buy_url_ark = models.URLField(null=True, blank=True)
+    buy_url_amazon = models.URLField(null=True, blank=True)
 
 
     class Meta:

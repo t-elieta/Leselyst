@@ -9,19 +9,42 @@
 .carousel-item { flex: 0 0 140px; }
 .carousel-item a { text-decoration: none; }
 .carousel-item .book-cover { width: 140px; height: 210px; flex-shrink: 0; }
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-60%); background: var(--brown); color: var(--cream-dark); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; z-index: 10; opacity: 0.85; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-60%); background: var(--teal); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; z-index: 10; opacity: 0.85; }
 .carousel-btn:hover { opacity: 1; }
 .carousel-btn.left { left: 0; }
 .carousel-btn.right { right: 0; }
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.filter-bar a {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text-light);
+    transition: background 0.15s;
+}
+
+.filter-bar a:hover { background: var(--cream-dark); }
+.filter-bar a.active { background: var(--teal); color: white; border-color: var(--teal); }
 {% endblock %}
 
 {% block content %}
+
 <div style="margin-bottom: 1.5rem;">
     <h1>Browse Books</h1>
     <p style="color: var(--text-light); margin-top: 0.25rem;">{{ books|length }} books</p>
 </div>
 
-<div class="section-head"><h2>Recently Added</h2></div>
+<div class="section-head"><h2>Recently added</h2></div>
 
 <div class="carousel-wrap">
     <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#8249;</button>
@@ -41,7 +64,17 @@
     <button class="carousel-btn right" onclick="scrollCarousel(1)">&#8250;</button>
 </div>
 
-<div class="section-head"><h2>All Books</h2></div>
+<div class="section-head"><h2>All books</h2></div>
+
+<!-- Genre filter -->
+{% if genres %}
+<div class="filter-bar">
+    <a href="{% url 'Leselystapp:book_list' %}" class="{% if not selected_genre %}active{% endif %}">All</a>
+    {% for genre in genres %}
+    <a href="?genre={{ genre.id }}" class="{% if selected_genre == genre.id|stringformat:'s' %}active{% endif %}">{{ genre.name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
 
 <div class="book-grid">
     {% for book in books %}
@@ -55,7 +88,7 @@
         </a>
     </div>
     {% empty %}
-    <p style="color: var(--text-light);">No books yet.</p>
+    <p style="color: var(--text-light);">No books found.</p>
     {% endfor %}
 </div>
 
@@ -65,4 +98,5 @@ function scrollCarousel(dir) {
     carousel.scrollBy({ left: dir * 480, behavior: 'smooth' });
 }
 </script>
+
 {% endblock %}
