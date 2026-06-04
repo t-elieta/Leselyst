@@ -11,12 +11,7 @@
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 2.8rem;
-    color: white;
-    margin-bottom: 0.75rem;
-    font-weight: 700;
-}
+.hero h1 { font-size: 2.8rem; color: white; margin-bottom: 0.75rem; font-weight: 700; }
 
 .hero p {
     opacity: 0.9;
@@ -61,12 +56,7 @@
 }
 
 .public-list-item:last-child { border-bottom: none; }
-
-.public-list-covers {
-    display: flex;
-    gap: 3px;
-    flex-shrink: 0;
-}
+.public-list-covers { display: flex; gap: 3px; flex-shrink: 0; }
 
 .mini-cover {
     width: 36px;
@@ -79,6 +69,10 @@
 }
 
 .mini-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.disc-type-book { background: #d4f0ea; color: #1a6b5a; }
+.disc-type-author { background: #fde8d0; color: #8a4a00; }
+.disc-type-general { background: var(--cream-dark); color: var(--text-light); }
 {% endblock %}
 
 {% block content %}
@@ -95,21 +89,14 @@
 {% endif %}
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-
     <div class="section-block">
-        <div class="section-head">
-            <h2>Trending</h2>
-        </div>
+        <div class="section-head"><h2>Trending</h2></div>
         <div class="book-grid">
             {% for book in trending %}
             <div class="book-card">
                 <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
                     <div class="book-cover">
-                        {% if book.cover_url %}
-                            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
-                        {% else %}
-                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
-                        {% endif %}
+                        {% if book.cover_url %}<img src="{{ book.cover_url }}" alt="{{ book.title }}">{% else %}<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>{% endif %}
                     </div>
                     <div class="book-title">{{ book.title }}</div>
                     <div class="book-author" style="color: #e07b39;">♥ {{ book.fav_count }}</div>
@@ -122,19 +109,13 @@
     </div>
 
     <div class="section-block">
-        <div class="section-head">
-            <h2>Reading now</h2>
-        </div>
+        <div class="section-head"><h2>Reading now</h2></div>
         <div class="book-grid">
             {% for book in reading_now %}
             <div class="book-card">
                 <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
                     <div class="book-cover">
-                        {% if book.cover_url %}
-                            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
-                        {% else %}
-                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
-                        {% endif %}
+                        {% if book.cover_url %}<img src="{{ book.cover_url }}" alt="{{ book.title }}">{% else %}<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>{% endif %}
                     </div>
                     <div class="book-title">{{ book.title }}</div>
                     <div class="book-author" style="color: var(--teal);">{{ book.reading_count }} reading</div>
@@ -145,7 +126,6 @@
             {% endfor %}
         </div>
     </div>
-
 </div>
 
 <div class="section-block">
@@ -158,11 +138,7 @@
         <div class="book-card">
             <a href="{% url 'Leselystapp:book_detail' book_id=book.id %}">
                 <div class="book-cover">
-                    {% if book.cover_url %}
-                        <img src="{{ book.cover_url }}" alt="{{ book.title }}">
-                    {% else %}
-                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>
-                    {% endif %}
+                    {% if book.cover_url %}<img src="{{ book.cover_url }}" alt="{{ book.title }}">{% else %}<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-light);text-align:center;padding:0.5rem;">{{ book.title }}</div>{% endif %}
                 </div>
                 <div class="book-title">{{ book.title }}</div>
                 <div class="book-author">{{ book.author.name }}</div>
@@ -176,9 +152,7 @@
 
 {% if public_lists %}
 <div class="section-block">
-    <div class="section-head">
-        <h2>Community lists</h2>
-    </div>
+    <div class="section-head"><h2>Community lists</h2></div>
     {% for list in public_lists %}
     <div class="public-list-item">
         <div class="public-list-covers">
@@ -201,6 +175,46 @@
         </div>
     </div>
     {% endfor %}
+</div>
+{% endif %}
+
+{% if recent_discussions %}
+<div class="section-block">
+    <div class="section-head" style="display: flex; justify-content: space-between; align-items: baseline;">
+        <h2>Recent discussions</h2>
+        <a href="{% url 'Leselystapp:discussions' %}" style="font-size: 0.8rem; color: var(--teal); text-decoration: none; font-weight: 700;">All discussions &rsaquo;</a>
+    </div>
+    {% for discussion in recent_discussions %}
+    <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+        <div style="flex: 1;">
+            <div style="margin-bottom: 0.2rem;">
+                {% if discussion.discussion_type == 'book' %}
+                <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 20px; background: #d4f0ea; color: #1a6b5a;">Book</span>
+                {% elif discussion.discussion_type == 'author' %}
+                <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 20px; background: #fde8d0; color: #8a4a00;">Author</span>
+                {% else %}
+                <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 20px; background: var(--cream-dark); color: var(--text-light);">General</span>
+                {% endif %}
+            </div>
+            <a href="{% url 'Leselystapp:discussion_detail' discussion_id=discussion.id %}" style="text-decoration: none;">
+                <div style="font-weight: 700; font-size: 0.9rem; color: var(--text);">{{ discussion.title }}</div>
+            </a>
+            <div style="font-size: 0.78rem; color: var(--text-light); margin-top: 0.2rem;">
+                by <a href="{% url 'Leselystapp:profile' username=discussion.user.username %}" style="color: var(--teal); text-decoration: none; font-weight: 700;">{{ discussion.user.username }}</a>
+                · {{ discussion.created_at|date:"d M Y" }}
+            </div>
+        </div>
+        <div style="text-align: center; flex-shrink: 0;">
+            <div style="font-size: 1rem; font-weight: 700; color: var(--teal);">{{ discussion.replies.count }}</div>
+            <div style="font-size: 0.65rem; color: var(--text-light);">replies</div>
+        </div>
+    </div>
+    {% endfor %}
+    <div style="padding-top: 0.75rem;">
+        {% if user.is_authenticated %}
+        <a href="{% url 'Leselystapp:create_discussion' %}" class="btn btn-green" style="font-size: 0.8rem;">+ Start a discussion</a>
+        {% endif %}
+    </div>
 </div>
 {% endif %}
 

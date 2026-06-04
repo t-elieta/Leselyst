@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Recommendations — Leselyst{% endblock %}
+
+{% block extra_styles %}
+.rec-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.rec-card.unread {
+    border-left: 3px solid var(--teal);
+}
+
+.rec-book-cover {
+    width: 60px;
+    height: 90px;
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.rec-book-cover img { width: 100%; height: 100%; object-fit: cover; }
+{% endblock %}
+
+{% block content %}
+
+<h1 style="margin-bottom: 1.5rem;">Recommendations</h1>
+
+{% if recommendations %}
+{% for rec in recommendations %}
+<div class="rec-card {% if not rec.read %}unread{% endif %}">
+    <a href="{% url 'Leselystapp:book_detail' book_id=rec.book.id %}" class="rec-book-cover">
+        {% if rec.book.cover_url %}
+            <img src="{{ rec.book.cover_url }}" alt="{{ rec.book.title }}">
+        {% endif %}
+    </a>
+    <div style="flex: 1;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+            <a href="{% url 'Leselystapp:profile' username=rec.from_user.username %}" style="text-decoration: none; font-weight: 700; color: var(--teal); font-size: 0.9rem;">{{ rec.from_user.username }}</a>
+            <span style="font-size: 0.78rem; color: var(--text-light);">{{ rec.created_at|date:"d M Y" }}</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.4rem;">recommended</p>
+        <a href="{% url 'Leselystapp:book_detail' book_id=rec.book.id %}" style="text-decoration: none;">
+            <div style="font-weight: 700; color: var(--text); font-size: 0.95rem;">{{ rec.book.title }}</div>
+            <div style="font-size: 0.8rem; color: var(--text-light);">{{ rec.book.author.name }}</div>
+        </a>
+        {% if rec.message %}
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem; font-style: italic;">"{{ rec.message }}"</p>
+        {% endif %}
+        {% if not rec.read %}
+        <a href="{% url 'Leselystapp:mark_recommendation_read' rec_id=rec.id %}" style="font-size: 0.75rem; color: var(--teal); text-decoration: none; margin-top: 0.5rem; display: inline-block;">Mark as read</a>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div style="text-align: center; padding: 3rem; color: var(--text-light);">
+    <p>No recommendations yet.</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Follow other readers and they can recommend books to you.</p>
+</div>
+{% endif %}
+
+{% endblock %}

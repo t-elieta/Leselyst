@@ -99,6 +99,10 @@
 
         <p style="color: var(--text-light); line-height: 1.8; max-width: 600px;">{{ book.description }}</p>
 
+        <div style="margin-top: 0.75rem;">
+            <a href="{% url 'Leselystapp:discussions' %}?type=book" style="font-size: 0.82rem; color: var(--teal); text-decoration: none; font-weight: 700;">Join the discussion about this book &rsaquo;</a>
+        </div>
+
         <hr>
 
         <h2 style="margin-bottom: 1rem;">Reviews</h2>

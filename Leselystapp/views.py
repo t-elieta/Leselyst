@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
-from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites, ReadingChallenge, UserProfile
+from .models import Books, Authors, Reviews, Comments, Book_list, Reading_status, Favourites, ReadingChallenge, UserProfile, Follow, BookRecommendation, Discussion, DiscussionReply
 from django.db.models import Q, Count
 from django.utils import timezone
 
@@ -13,16 +13,21 @@ def home(request):
     trending = Books.objects.annotate(fav_count=Count('favourites')).order_by('-fav_count')[:8]
     reading_now = Books.objects.annotate(reading_count=Count('reading_status', filter=Q(reading_status__status='reading'))).filter(reading_count__gt=0).order_by('-reading_count')[:8]
     public_lists = Book_list.objects.filter(is_public=True).order_by('-created_at')[:6]
+    recent_discussions = Discussion.objects.all().order_by('-created_at')[:5]
+    unread_recs = 0
+    if request.user.is_authenticated:
+        unread_recs = BookRecommendation.objects.filter(to_user=request.user, read=False).count()
     return render(request, "home.html", {
         "books": books,
         "trending": trending,
         "reading_now": reading_now,
         "public_lists": public_lists,
+        "recent_discussions": recent_discussions,
+        "unread_recs": unread_recs,
     })
 
 
 def book_list(request):
-    from .models import Genres
     valid_sorts = ['-date', 'date', 'title', '-title', 'author__name']
     sort = request.GET.get("sort", "-date")
     if sort not in valid_sorts:
@@ -31,6 +36,7 @@ def book_list(request):
     books = Books.objects.all().order_by(sort)
     if genre_id:
         books = books.filter(book_genres__genre_id=genre_id)
+    from .models import Genres
     genres = Genres.objects.all().order_by("name")
     return render(request, "book_list.html", {
         "books": books,
@@ -106,6 +112,16 @@ def profile(request, username):
     recently_finished = Reading_status.objects.filter(user=profile_user, status='finished').select_related('book')[:8]
     public_lists = Book_list.objects.filter(user=profile_user, is_public=True).order_by('-created_at')
 
+    followers_count = Follow.objects.filter(following=profile_user).count()
+    following_count = Follow.objects.filter(follower=profile_user).count()
+    is_following = False
+    unread_recs = 0
+    all_books = Books.objects.all().order_by('title')
+    if request.user.is_authenticated:
+        is_following = Follow.objects.filter(follower=request.user, following=profile_user).exists()
+        if request.user == profile_user:
+            unread_recs = BookRecommendation.objects.filter(to_user=request.user, read=False).count()
+
     return render(request, "profile.html", {
         "profile_user": profile_user,
         "user_profile": user_profile,
@@ -120,6 +136,11 @@ def profile(request, username):
         "currently_reading": currently_reading,
         "recently_finished": recently_finished,
         "public_lists": public_lists,
+        "followers_count": followers_count,
+        "following_count": following_count,
+        "is_following": is_following,
+        "unread_recs": unread_recs,
+        "all_books": all_books,
     })
 
 
@@ -192,6 +213,106 @@ def account_settings(request):
 
 
 @login_required
+def toggle_follow(request, username):
+    target = get_object_or_404(User, username=username)
+    if target == request.user:
+        return redirect("Leselystapp:profile", username=username)
+    follow, created = Follow.objects.get_or_create(follower=request.user, following=target)
+    if not created:
+        follow.delete()
+    return redirect("Leselystapp:profile", username=username)
+
+
+@login_required
+def recommend_book(request, username):
+    to_user = get_object_or_404(User, username=username)
+    if request.method == "POST":
+        book_id = request.POST.get("book_id")
+        message = request.POST.get("message", "")
+        if book_id:
+            book = get_object_or_404(Books, id=book_id)
+            BookRecommendation.objects.create(
+                from_user=request.user,
+                to_user=to_user,
+                book=book,
+                message=message
+            )
+    return redirect("Leselystapp:profile", username=username)
+
+
+@login_required
+def recommendations(request):
+    recs = BookRecommendation.objects.filter(to_user=request.user).order_by('-created_at')
+    BookRecommendation.objects.filter(to_user=request.user, read=False).update(read=True)
+    return render(request, "recommendations.html", {"recommendations": recs})
+
+
+@login_required
+def mark_recommendation_read(request, rec_id):
+    rec = get_object_or_404(BookRecommendation, id=rec_id, to_user=request.user)
+    rec.read = True
+    rec.save()
+    return redirect("Leselystapp:recommendations")
+
+
+def discussions(request):
+    discussion_type = request.GET.get("type")
+    qs = Discussion.objects.all()
+    if discussion_type in ['book', 'author', 'general']:
+        qs = qs.filter(discussion_type=discussion_type)
+    return render(request, "discussions.html", {
+        "discussions": qs,
+        "selected_type": discussion_type,
+    })
+
+
+def discussion_detail(request, discussion_id):
+    discussion = get_object_or_404(Discussion, id=discussion_id)
+    replies = discussion.replies.all()
+    return render(request, "discussion_detail.html", {
+        "discussion": discussion,
+        "replies": replies,
+    })
+
+
+@login_required
+def create_discussion(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        discussion_type = request.POST.get("discussion_type", "general")
+        book_id = request.POST.get("book_id") or None
+        author_id = request.POST.get("author_id") or None
+        if title and content:
+            Discussion.objects.create(
+                user=request.user,
+                title=title,
+                content=content,
+                discussion_type=discussion_type,
+                book_id=book_id,
+                author_id=author_id,
+            )
+        return redirect("Leselystapp:discussions")
+    books = Books.objects.all().order_by("title")
+    authors = Authors.objects.all().order_by("name")
+    return render(request, "create_discussion.html", {"books": books, "authors": authors})
+
+
+@login_required
+def add_reply(request, discussion_id):
+    discussion = get_object_or_404(Discussion, id=discussion_id)
+    if request.method == "POST":
+        content = request.POST.get("content")
+        if content:
+            DiscussionReply.objects.create(
+                discussion=discussion,
+                user=request.user,
+                content=content,
+            )
+    return redirect("Leselystapp:discussion_detail", discussion_id=discussion_id)
+
+
+@login_required
 def add_review(request, book_id):
     book = get_object_or_404(Books, id=book_id)
     if request.method == "POST":
@@ -253,8 +374,8 @@ def my_lists(request):
 
 
 def list_detail(request, list_id):
-    book_list = get_object_or_404(Book_list, id=list_id, user=request.user)
-    if not book_list.is_public and book_list.user != request.user:
+    book_list = get_object_or_404(Book_list, id=list_id)
+    if not book_list.is_public and (not request.user.is_authenticated or book_list.user != request.user):
         return redirect("Leselystapp:home")
     return render(request, "list_detail.html", {"book_list": book_list})
 

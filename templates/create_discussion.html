@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}New Discussion — Leselyst{% endblock %}
+
+{% block content %}
+
+<div style="max-width: 600px; margin: 0 auto;">
+    <a href="{% url 'Leselystapp:discussions' %}" style="font-size: 0.85rem; color: var(--text-light); text-decoration: none;">← Back to discussions</a>
+
+    <h1 style="margin: 1rem 0;">Start a discussion</h1>
+
+    <div class="card">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div style="margin-bottom: 1rem;">
+                <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.3rem;">Title</label>
+                <input type="text" name="title" required style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; font-family: var(--font);">
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.3rem;">Type</label>
+                <select name="discussion_type" id="typeSelect" onchange="updateLinkedField()" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font); font-size: 0.9rem;">
+                    <option value="general">General</option>
+                    <option value="book">About a book</option>
+                    <option value="author">About an author</option>
+                </select>
+            </div>
+
+            <div id="bookField" style="display: none; margin-bottom: 1rem;">
+                <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.3rem;">Book</label>
+                <select name="book_id" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font); font-size: 0.9rem;">
+                    <option value="">— Select a book —</option>
+                    {% for book in books %}
+                    <option value="{{ book.id }}">{{ book.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div id="authorField" style="display: none; margin-bottom: 1rem;">
+                <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.3rem;">Author</label>
+                <select name="author_id" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font); font-size: 0.9rem;">
+                    <option value="">— Select an author —</option>
+                    {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 0.3rem;">Content</label>
+                <textarea name="content" rows="5" required placeholder="What's on your mind?" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font); font-size: 0.9rem;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-green">Post discussion</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function updateLinkedField() {
+    const type = document.getElementById('typeSelect').value;
+    document.getElementById('bookField').style.display = type === 'book' ? 'block' : 'none';
+    document.getElementById('authorField').style.display = type === 'author' ? 'block' : 'none';
+}
+</script>
+
+{% endblock %}

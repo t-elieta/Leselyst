@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Books, Authors, Publications, Book_genres, Genres, Comments, Reviews, Book_list, Books_in_list, Reading_status, Favourites, ReadingChallenge, UserProfile
+from .models import Books, Authors, Publications, Book_genres, Genres, Comments, Reviews, Book_list, Books_in_list, Reading_status, Favourites, ReadingChallenge, UserProfile, Follow, BookRecommendation, Discussion, DiscussionReply
 admin.site.register(UserProfile)
 admin.site.register(Books)
 admin.site.register(Authors)
@@ -13,4 +13,7 @@ admin.site.register(Books_in_list)
 admin.site.register(Reading_status)
 admin.site.register(Favourites)
 admin.site.register(ReadingChallenge)
-    
+admin.site.register(Follow)
+admin.site.register(BookRecommendation)
+admin.site.register(Discussion)
+admin.site.register(DiscussionReply)

@@ -180,3 +180,67 @@ class ReadingChallenge(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.year} goal: {self.goal}"
     
+
+class Follow(models.Model):
+    follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
+    following = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followers')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('follower', 'following')
+        verbose_name = "Follow"
+
+    def __str__(self):
+        return f"{self.follower.username} follows {self.following.username}"
+    
+
+class BookRecommendation(models.Model):
+    from_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recommendations_sent')
+    to_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recommendations_received')
+    book = models.ForeignKey(Books, on_delete=models.CASCADE)
+    message = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    read = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Book Recommendation"
+
+    def __str__(self):
+        return f"{self.from_user.username} recommended {self.book.title} to {self.to_user.username}"
+    
+
+class Discussion(models.Model):
+    TYPE_CHOICES = [
+        ('book', 'Book'),
+        ('author', 'Author'),
+        ('general', 'General'),
+    ]
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='discussions')
+    book = models.ForeignKey(Books, on_delete=models.CASCADE, null=True, blank=True, related_name='discussions')
+    author = models.ForeignKey(Authors, on_delete=models.CASCADE, null=True, blank=True, related_name='discussions')
+    discussion_type = models.CharField(max_length=20, choices=TYPE_CHOICES, default='general')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Discussion"
+
+    def __str__(self):
+        return self.title
+
+
+class DiscussionReply(models.Model):
+    discussion = models.ForeignKey(Discussion, on_delete=models.CASCADE, related_name='replies')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='discussion_replies')
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+        verbose_name = "Discussion Reply"
+
+    def __str__(self):
+        return f"Reply by {self.user.username} on {self.discussion.title}"

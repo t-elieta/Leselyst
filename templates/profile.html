@@ -124,8 +124,48 @@
         <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 0.25rem;">{{ user_profile.bio }}</p>
         {% endif %}
         <p style="color: rgba(255,255,255,0.6); font-size: 0.78rem; margin-top: 0.25rem;">Member since {{ profile_user.date_joined|date:"F Y" }}</p>
-        {% if user == profile_user %}
-        <a href="{% url 'Leselystapp:account_settings' %}" style="display: inline-block; margin-top: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.8); text-decoration: none; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 20px;">Edit profile</a>
+        <div style="display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+            <span><strong style="color: white;">{{ followers_count }}</strong> followers</span>
+            <span><strong style="color: white;">{{ following_count }}</strong> following</span>
+        </div>
+        <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            {% if user == profile_user %}
+            <a href="{% url 'Leselystapp:account_settings' %}" style="font-size: 0.78rem; color: rgba(255,255,255,0.8); text-decoration: none; background: rgba(255,255,255,0.15); padding: 0.2rem 0.75rem; border-radius: 20px;">Edit profile</a>
+            {% if unread_recs > 0 %}
+            <a href="{% url 'Leselystapp:recommendations' %}" style="font-size: 0.78rem; color: #7a4a00; text-decoration: none; background: var(--peach); padding: 0.2rem 0.75rem; border-radius: 20px; font-weight: 700;">{{ unread_recs }} new recommendation{{ unread_recs|pluralize }}</a>
+            {% else %}
+            <a href="{% url 'Leselystapp:recommendations' %}" style="font-size: 0.78rem; color: rgba(255,255,255,0.8); text-decoration: none; background: rgba(255,255,255,0.15); padding: 0.2rem 0.75rem; border-radius: 20px;">Recommendations</a>
+            {% endif %}
+            {% else %}
+            <form method="POST" action="{% url 'Leselystapp:toggle_follow' username=profile_user.username %}" style="margin: 0;">
+                {% csrf_token %}
+                <button type="submit" style="font-size: 0.78rem; font-weight: 700; border: none; cursor: pointer; padding: 0.2rem 0.75rem; border-radius: 20px; font-family: var(--font); {% if is_following %}background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);{% else %}background: var(--peach); color: #7a4a00;{% endif %}">
+                    {% if is_following %}Unfollow{% else %}Follow{% endif %}
+                </button>
+            </form>
+            {% if user.is_authenticated %}
+            <button onclick="document.getElementById('recommendForm').style.display='block'" style="font-size: 0.78rem; font-weight: 700; border: none; cursor: pointer; padding: 0.2rem 0.75rem; border-radius: 20px; font-family: var(--font); background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">Recommend a book</button>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        {% if user.is_authenticated and user != profile_user %}
+        <div id="recommendForm" style="display: none; margin-top: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem;">
+            <form method="POST" action="{% url 'Leselystapp:recommend_book' username=profile_user.username %}">
+                {% csrf_token %}
+                <div style="margin-bottom: 0.5rem;">
+                    <select name="book_id" style="width: 100%; padding: 0.4rem; border-radius: 6px; border: none; font-family: var(--font); font-size: 0.85rem;">
+                        {% for book in all_books %}
+                        <option value="{{ book.id }}">{{ book.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <input type="text" name="message" placeholder="Add a message (optional)" style="width: 100%; padding: 0.4rem 0.6rem; border-radius: 6px; border: none; font-family: var(--font); font-size: 0.85rem;">
+                </div>
+                <button type="submit" style="background: var(--peach); color: #7a4a00; border: none; padding: 0.3rem 1rem; border-radius: 20px; font-weight: 700; font-family: var(--font); cursor: pointer;">Send recommendation</button>
+            </form>
+        </div>
         {% endif %}
     </div>
 </div>

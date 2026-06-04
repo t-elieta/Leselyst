@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}{{ discussion.title }} — Leselyst{% endblock %}
+
+{% block extra_styles %}
+.reply-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'Leselystapp:discussions' %}" style="font-size: 0.85rem; color: var(--text-light); text-decoration: none;">← Back to discussions</a>
+
+<div style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.25rem 0;">
+    <div style="margin-bottom: 0.75rem;">
+        <span class="badge">{{ discussion.get_discussion_type_display }}</span>
+        {% if discussion.book %}
+        <a href="{% url 'Leselystapp:book_detail' book_id=discussion.book.id %}" style="font-size: 0.8rem; color: var(--teal); text-decoration: none; margin-left: 0.5rem;">{{ discussion.book.title }}</a>
+        {% elif discussion.author %}
+        <a href="{% url 'Leselystapp:author_detail' author_id=discussion.author.id %}" style="font-size: 0.8rem; color: var(--teal); text-decoration: none; margin-left: 0.5rem;">{{ discussion.author.name }}</a>
+        {% endif %}
+    </div>
+    <h1 style="font-size: 1.4rem; margin-bottom: 0.75rem;">{{ discussion.title }}</h1>
+    <p style="color: var(--text-light); line-height: 1.8;">{{ discussion.content }}</p>
+    <div style="font-size: 0.78rem; color: var(--text-light); margin-top: 1rem;">
+        by <a href="{% url 'Leselystapp:profile' username=discussion.user.username %}" style="color: var(--teal); text-decoration: none; font-weight: 700;">{{ discussion.user.username }}</a>
+        · {{ discussion.created_at|date:"d M Y" }}
+    </div>
+</div>
+
+<h2 style="margin-bottom: 1rem;">{{ discussion.replies.count }} repl{{ discussion.replies.count|pluralize:"y,ies" }}</h2>
+
+{% for reply in replies %}
+<div class="reply-card">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+        <a href="{% url 'Leselystapp:profile' username=reply.user.username %}" style="text-decoration: none; font-weight: 700; color: var(--teal); font-size: 0.9rem;">{{ reply.user.username }}</a>
+        <span style="font-size: 0.78rem; color: var(--text-light);">{{ reply.created_at|date:"d M Y" }}</span>
+    </div>
+    <p style="font-size: 0.875rem; color: var(--text-light); line-height: 1.7;">{{ reply.content }}</p>
+</div>
+{% empty %}
+<p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">No replies yet — be the first!</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+<div style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-top: 1.5rem;">
+    <h3 style="margin-bottom: 0.75rem;">Add a reply</h3>
+    <form method="POST" action="{% url 'Leselystapp:add_reply' discussion_id=discussion.id %}">
+        {% csrf_token %}
+        <textarea name="content" rows="3" placeholder="Share your thoughts…" style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font); font-size: 0.875rem; margin-bottom: 0.75rem;"></textarea>
+        <button type="submit" class="btn btn-green">Post reply</button>
+    </form>
+</div>
+{% else %}
+<p style="color: var(--text-light); font-size: 0.9rem; margin-top: 1.5rem;">
+    <a href="{% url 'login' %}" style="color: var(--teal); font-weight: 700;">Sign in</a> to join the discussion.
+</p>
+{% endif %}
+
+{% endblock %}

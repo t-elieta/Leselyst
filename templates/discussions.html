@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Discussions — Leselyst{% endblock %}
+
+{% block extra_styles %}
+.discussion-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: box-shadow 0.2s;
+}
+
+.discussion-card:hover { box-shadow: 0 2px 12px rgba(42,157,143,0.1); }
+
+.discussion-meta {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 0.4rem;
+}
+
+.type-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-right: 0.4rem;
+}
+
+.type-book { background: #d4f0ea; color: #1a6b5a; }
+.type-author { background: #fde8d0; color: #8a4a00; }
+.type-general { background: var(--cream-dark); color: var(--text-light); }
+
+.filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.filter-bar a { padding: 0.25rem 0.75rem; border-radius: 20px; text-decoration: none; font-size: 0.78rem; font-weight: 700; border: 1px solid var(--border); background: var(--white); color: var(--text-light); }
+.filter-bar a:hover { background: var(--cream-dark); }
+.filter-bar a.active { background: var(--teal); color: white; border-color: var(--teal); }
+{% endblock %}
+
+{% block content %}
+
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+    <h1>Discussions</h1>
+    {% if user.is_authenticated %}
+    <a href="{% url 'Leselystapp:create_discussion' %}" class="btn btn-green">+ New discussion</a>
+    {% endif %}
+</div>
+
+<div class="filter-bar">
+    <a href="{% url 'Leselystapp:discussions' %}" class="{% if not selected_type %}active{% endif %}">All</a>
+    <a href="?type=book" class="{% if selected_type == 'book' %}active{% endif %}">Books</a>
+    <a href="?type=author" class="{% if selected_type == 'author' %}active{% endif %}">Authors</a>
+    <a href="?type=general" class="{% if selected_type == 'general' %}active{% endif %}">General</a>
+</div>
+
+{% for discussion in discussions %}
+<div class="discussion-card">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="flex: 1;">
+            <div style="margin-bottom: 0.4rem;">
+                <span class="type-badge type-{{ discussion.discussion_type }}">{{ discussion.get_discussion_type_display }}</span>
+                {% if discussion.book %}
+                <a href="{% url 'Leselystapp:book_detail' book_id=discussion.book.id %}" style="font-size: 0.78rem; color: var(--teal); text-decoration: none;">{{ discussion.book.title }}</a>
+                {% elif discussion.author %}
+                <a href="{% url 'Leselystapp:author_detail' author_id=discussion.author.id %}" style="font-size: 0.78rem; color: var(--teal); text-decoration: none;">{{ discussion.author.name }}</a>
+                {% endif %}
+            </div>
+            <a href="{% url 'Leselystapp:discussion_detail' discussion_id=discussion.id %}" style="text-decoration: none;">
+                <h3 style="color: var(--text); font-size: 1rem;">{{ discussion.title }}</h3>
+            </a>
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.3rem;">{{ discussion.content|truncatechars:120 }}</p>
+        </div>
+        <div style="text-align: right; flex-shrink: 0; margin-left: 1rem;">
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--teal);">{{ discussion.replies.count }}</div>
+            <div style="font-size: 0.7rem; color: var(--text-light);">replies</div>
+        </div>
+    </div>
+    <div class="discussion-meta">
+        by <a href="{% url 'Leselystapp:profile' username=discussion.user.username %}" style="color: var(--teal); text-decoration: none; font-weight: 700;">{{ discussion.user.username }}</a>
+        · {{ discussion.created_at|date:"d M Y" }}
+    </div>
+</div>
+{% empty %}
+<div style="text-align: center; padding: 3rem; color: var(--text-light);">
+    <p>No discussions yet.</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'Leselystapp:create_discussion' %}" class="btn btn-green" style="margin-top: 1rem;">Start the first discussion</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+{% endblock %}
